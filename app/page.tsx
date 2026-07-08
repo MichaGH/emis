@@ -1,5 +1,6 @@
 import { HeroSlideshow } from "@/components/homepage/HeroSlideshow";
 import { ElectronicsSection } from "@/components/homepage/ElectronicsSection";
+import { ValuesSection } from "@/components/homepage/ValuesSection";
 import { ColloidalSilverSection } from "@/components/homepage/ColloidalSilverSection";
 import { NanoparticlesSection } from "@/components/homepage/NanoparticlesSection";
 import { FeaturedProductsSection } from "@/components/homepage/FeaturedProductsSection";
@@ -12,6 +13,7 @@ export default function Home() {
     <>
       <HeroSlideshow />
       <ElectronicsSection />
+      <ValuesSection />
       <ColloidalSilverSection />
       <NanoparticlesSection />
       <FeaturedProductsSection />
