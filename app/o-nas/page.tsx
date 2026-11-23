@@ -62,7 +62,7 @@ export default function AboutPage() {
                 </li>
               ))}
             </ol>
-            <p className="mt-12 text-[15px] font-semibold text-white/75">
+            <p className="mt-12 text-[15px] font-semibold text-white">
               Zariadenia sme dodali pre
             </p>
             <p className="mt-2 text-lg font-bold">{clients.join("  ·  ")}</p>

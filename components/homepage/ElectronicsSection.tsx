@@ -21,7 +21,7 @@ export function ElectronicsSection() {
               <h2 className="text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] sm:text-5xl">
                 Prístroj presne podľa vášho zadania
               </h2>
-              <p className="mt-5 text-lg leading-relaxed text-white/85">
+              <p className="mt-5 text-lg leading-relaxed text-white">
                 Testovacie pracoviská, riadenie a signalizácia pre výrobu. Od
                 schémy až po hotové zariadenie so servisom.
               </p>

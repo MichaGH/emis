@@ -28,8 +28,9 @@
   --surface: #f2f3f5;
   --surface-strong: #e4e7eb;
   --border: #d9dde3;
-  /* Tlmený text — stále tmavý, nie bledosivý */
-  --muted: #3c4656;
+  /* POKUS: žiadne odtiene sivej v texte — „tlmený“ text má rovnakú farbu ako hlavný.
+     Pôvodne #3c4656 (a --dark-muted #c6d1e6). */
+  --muted: #0d1a2e;
 
   /* Tmavé sekcie — navy */
   --dark: #0a1838;
@@ -37,7 +38,7 @@
   --dark-surface: #13264d;
   --dark-border: #223a6a;
   --dark-foreground: #ffffff;
-  --dark-muted: #c6d1e6;
+  --dark-muted: #ffffff;
 
   /* Písmo — primárne pre nadpisy, sekundárne pre text.
      Hodnoty prepisuje aj výber písma (FontPicker) priamo na <html>. */

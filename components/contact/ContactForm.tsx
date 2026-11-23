@@ -1,7 +1,7 @@
 // Statický formulár — odosielanie sa doplní neskôr (napr. e-mailová služba).
 
 const field =
-  "mt-2 w-full rounded-xl border border-black/10 bg-[linear-gradient(180deg,#f3f5f8,#fbfcfd)] px-4 py-3.5 text-base text-foreground shadow-[inset_0_1px_2px_rgba(13,26,46,0.06)] outline-none transition-colors placeholder:text-muted focus:border-primary focus:bg-white";
+  "mt-2 w-full rounded-xl border border-black/10 bg-[linear-gradient(180deg,#f3f5f8,#fbfcfd)] px-4 py-3.5 text-base text-foreground shadow-[inset_0_1px_2px_rgba(13,26,46,0.06)] outline-none transition-colors placeholder:text-[#7a8494] focus:border-primary focus:bg-white";
 const label = "text-sm font-bold text-foreground";
 
 export function ContactForm() {

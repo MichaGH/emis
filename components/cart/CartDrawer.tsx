@@ -50,7 +50,7 @@ export function CartDrawer() {
         <header className="bg-primary flex items-center justify-between px-6 py-5 text-white">
           <div>
             <h2 className="text-xl font-bold">Košík</h2>
-            <p className="text-sm text-white/85">
+            <p className="text-sm text-white">
               {lines.length === 0 ? "Zatiaľ prázdny" : pluralItems(lines.length)}
             </p>
           </div>

@@ -13,7 +13,7 @@ export function ReasonsSection() {
           <h2 className="text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] sm:text-[3.25rem]">
             Presnosť, ktorú uvidíte pod mikroskopom
           </h2>
-          <p className="mt-5 max-w-lg text-lg leading-relaxed text-white/70">
+          <p className="mt-5 max-w-lg text-lg leading-relaxed text-white">
             Generátor GKS drží prúd stabilný počas celej výroby. Výsledkom sú
             rovnomerné častice a čistý roztok.
           </p>
@@ -27,7 +27,7 @@ export function ReasonsSection() {
                     <Icon className="h-6 w-6 text-accent" />
                     {reason.title}
                   </h3>
-                  <p className="mt-2 max-w-lg pl-9 text-lg leading-relaxed text-white/65">
+                  <p className="mt-2 max-w-lg pl-9 text-lg leading-relaxed text-white">
                     {reason.text}
                   </p>
                 </li>
@@ -53,7 +53,7 @@ export function ReasonsSection() {
             <p className="text-5xl font-extrabold tracking-[-0.03em] sm:text-6xl">
               99,99 %
             </p>
-            <p className="mt-1 max-w-[15rem] font-medium text-white/85">
+            <p className="mt-1 max-w-[15rem] font-medium text-white">
               čistota striebra elektród, s certifikátom výrobcu
             </p>
           </div>
@@ -69,7 +69,7 @@ export function ReasonsSection() {
                 className="object-cover"
               />
             </div>
-            <figcaption className="mt-3 text-center text-sm font-semibold text-white/80">
+            <figcaption className="mt-3 text-center text-sm font-semibold text-white">
               Častice striebra
               <br />
               pod mikroskopom

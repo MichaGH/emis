@@ -74,7 +74,7 @@ export function HeroSection({
                 <span className="block text-3xl font-extrabold tracking-tight sm:text-4xl">
                   {fact.value}
                 </span>
-                <span className="mt-1.5 block text-[15px] font-medium text-white/85">
+                <span className="mt-1.5 block text-[15px] font-medium text-white">
                   {fact.label}
                 </span>
               </dd>

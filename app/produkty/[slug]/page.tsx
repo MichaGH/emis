@@ -68,7 +68,7 @@ export default async function ProductPage(props: PageProps<"/produkty/[slug]">) 
             </h1>
             <p className="mt-2 text-xl font-semibold text-dark-muted">{product.name}</p>
 
-            <p className="mt-6 text-lg leading-relaxed text-white/90">
+            <p className="mt-6 text-lg leading-relaxed text-white">
               {product.shortDescription}
             </p>
 
@@ -108,7 +108,7 @@ export default async function ProductPage(props: PageProps<"/produkty/[slug]">) 
       <section className={`${CONTAINER} grid gap-6 py-16 lg:grid-cols-12 lg:py-24`}>
         <div className="card rounded-[22px] p-7 sm:p-10 lg:col-span-7">
           <h2 className="text-2xl font-extrabold">Popis</h2>
-          <div className="mt-5 space-y-4 text-lg leading-relaxed text-foreground/90">
+          <div className="mt-5 space-y-4 text-lg leading-relaxed text-foreground">
             {product.description.map((p) => (
               <p key={p}>{p}</p>
             ))}
@@ -139,7 +139,7 @@ export default async function ProductPage(props: PageProps<"/produkty/[slug]">) 
                   key={spec.label}
                   className="grid grid-cols-2 gap-4 rounded-lg bg-primary-deep px-4 py-3"
                 >
-                  <dt className="text-white/80">{spec.label}</dt>
+                  <dt className="text-white">{spec.label}</dt>
                   <dd className="font-semibold">{spec.value}</dd>
                 </div>
               ))}

@@ -10,7 +10,7 @@ export function ContactSection() {
           <h2 className="mt-3 text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] sm:text-5xl">
             Zavolajte priamo konštruktérovi
           </h2>
-          <p className="mt-5 max-w-md text-lg leading-relaxed text-white/90">
+          <p className="mt-5 max-w-md text-lg leading-relaxed text-white">
             Poradíme s výberom generátora, s výrobou aj so servisom. Zákazkový
             vývoj radi preberieme osobne.
           </p>
@@ -39,9 +39,9 @@ export function ContactSection() {
               const Icon = item.icon;
               const body = (
                 <>
-                  <Icon className="h-5 w-5 flex-none text-white/80" />
+                  <Icon className="h-5 w-5 flex-none text-white" />
                   <span className="min-w-0 flex-1">
-                    <span className="block text-[13px] font-medium text-white/65">
+                    <span className="block text-[13px] font-medium text-white">
                       {item.label}
                     </span>
                     <span className="block truncate text-lg font-semibold">{item.value}</span>
@@ -64,7 +64,7 @@ export function ContactSection() {
               );
             })}
           </ul>
-          <p className="mt-4 text-[15px] text-white/70">{SITE.owner}</p>
+          <p className="mt-4 text-[15px] text-white">{SITE.owner}</p>
         </div>
 
         <div className="lg:col-span-7">

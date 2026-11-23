@@ -21,7 +21,7 @@ export default function ElectronicsPage() {
         lead={`Od roku ${SITE.founded} navrhujeme hardvér aj softvér prístrojov presne podľa toho, čo zákazník potrebuje.`}
         image="/images/chip-tweezers.jpg"
       >
-        <p className="mt-12 text-[15px] font-semibold text-white/75">
+        <p className="mt-12 text-[15px] font-semibold text-white">
           Zariadenia sme dodali pre
         </p>
         <p className="mt-2 text-xl font-bold">{clients.join("  ·  ")}</p>
@@ -33,7 +33,7 @@ export default function ElectronicsPage() {
             <h2 className="text-4xl font-extrabold tracking-[-0.03em] sm:text-5xl">
               Vybrané realizácie
             </h2>
-            <p className="mt-4 text-lg text-foreground/75">
+            <p className="mt-4 text-lg text-foreground">
               Zariadenia, ktoré sme navrhli a postavili pre výrobné firmy.
             </p>
           </div>
@@ -69,7 +69,7 @@ export default function ElectronicsPage() {
                   </span>
                   <div>
                     <h3 className="text-xl font-bold">{p.title}</h3>
-                    <p className="mt-1.5 text-lg leading-relaxed text-foreground/80">
+                    <p className="mt-1.5 text-lg leading-relaxed text-foreground">
                       {p.text}
                     </p>
                   </div>

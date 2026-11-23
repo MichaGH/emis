@@ -11,7 +11,7 @@ export function SilverSection() {
           <h2 className="text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] sm:text-5xl">
             Ako vzniká koloidné striebro
           </h2>
-          <p className="mt-4 text-lg text-foreground/75">
+          <p className="mt-4 text-lg text-foreground">
             Voda, striebro a slabý prúd. Zvyšok urobí prístroj.
           </p>
         </div>

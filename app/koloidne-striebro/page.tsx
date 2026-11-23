@@ -29,7 +29,7 @@ export default function SilverPage() {
       />
 
       <section className={`${CONTAINER} grid gap-10 py-16 lg:grid-cols-12 lg:py-24`}>
-        <article className="space-y-5 text-lg leading-relaxed text-foreground/90 lg:col-span-6">
+        <article className="space-y-5 text-lg leading-relaxed text-foreground lg:col-span-6">
           <SectionLabel label="Čo to je" />
           <p className="text-2xl font-bold leading-snug text-foreground">
             Koloidné striebro je destilovaná voda, v ktorej sú rozptýlené
@@ -90,7 +90,7 @@ export default function SilverPage() {
                   </span>
                   <div>
                     <h3 className="text-xl font-bold">{step.title}</h3>
-                    <p className="mt-2 leading-relaxed text-foreground/80">
+                    <p className="mt-2 leading-relaxed text-foreground">
                       {step.description}
                     </p>
                   </div>
@@ -131,7 +131,7 @@ export default function SilverPage() {
                     <PlusIcon className="h-4 w-4" />
                   </span>
                 </summary>
-                <p className="px-6 pb-6 leading-relaxed text-foreground/85">
+                <p className="px-6 pb-6 leading-relaxed text-foreground">
                   {faq.answer}
                 </p>
               </details>

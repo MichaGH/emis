@@ -30,7 +30,7 @@ export function BenefitsSection() {
               <li key={b.title} className="flex flex-col items-center text-center">
                 <Icon className="h-12 w-12" strokeWidth={1.4} />
                 <h3 className="mt-6 text-xl font-bold">{b.title}</h3>
-                <p className="mt-2 max-w-[17rem] leading-relaxed text-white/85">
+                <p className="mt-2 max-w-[17rem] leading-relaxed text-white">
                   {b.text}
                 </p>
               </li>

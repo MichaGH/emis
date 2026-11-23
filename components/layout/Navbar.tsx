@@ -53,7 +53,7 @@ export function Navbar() {
                       : "hover:text-primary"
                     : active
                       ? "text-white"
-                      : "text-white/80 hover:text-white"
+                      : "text-white hover:text-white"
                 }`}
               >
                 {item.label}

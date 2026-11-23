@@ -25,7 +25,7 @@ export function PageHeader({
           <Link href="/" className="text-accent hover:underline">
             Úvod
           </Link>
-          <span className="mx-2 text-white/50">/</span>
+          <span className="mx-2 text-white">/</span>
           <span>{crumb}</span>
         </nav>
         <div className="mt-10 grid gap-6 lg:grid-cols-12 lg:items-end">
@@ -33,7 +33,7 @@ export function PageHeader({
             {title}
           </h1>
           {lead && (
-            <p className="text-lg leading-relaxed text-white/85 lg:col-span-5">
+            <p className="text-lg leading-relaxed text-white lg:col-span-5">
               {lead}
             </p>
           )}

@@ -156,7 +156,7 @@ export function FontPicker() {
           >
             <span className="block text-[13px] font-bold">{tab.title}</span>
             <span
-              className={`block truncate text-[12px] ${slot === tab.id ? "text-white/80" : "text-muted"}`}
+              className={`block truncate text-[12px] ${slot === tab.id ? "text-white" : "text-muted"}`}
             >
               {labelOf(selection[tab.id])} · {tab.hint}
             </span>

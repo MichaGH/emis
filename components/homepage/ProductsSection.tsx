@@ -10,7 +10,7 @@ export function ProductsSection() {
           <h2 className="mt-3 text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] sm:text-5xl">
             Generátory koloidného striebra
           </h2>
-          <p className="mt-5 text-lg leading-relaxed text-foreground/80">
+          <p className="mt-5 text-lg leading-relaxed text-foreground">
             Prístroje na výrobu koloidného striebra doma. Elektródy z 99,99 %
             striebra s certifikátom výrobcu sú súčasťou balenia.
           </p>

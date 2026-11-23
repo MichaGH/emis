@@ -37,7 +37,7 @@ export function ProjectCard({ project }: { project: ElectronicsProject }) {
 
       <div className="flex flex-1 flex-col p-6">
         <h3 className="text-lg font-bold leading-snug">{project.title}</h3>
-        <p className="mt-2 flex-1 text-[15px] leading-relaxed text-foreground/75">
+        <p className="mt-2 flex-1 text-[15px] leading-relaxed text-foreground">
           {project.description}
         </p>
         {project.client && (

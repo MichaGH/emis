@@ -24,7 +24,7 @@ export function ProductCard({ product }: { product: Product }) {
           <p className="mt-2 text-[17px] font-semibold text-muted">{product.name}</p>
         </Link>
 
-        <p className="mt-4 flex-1 leading-relaxed text-foreground/85">
+        <p className="mt-4 flex-1 leading-relaxed text-foreground">
           {product.shortDescription}
         </p>
 
