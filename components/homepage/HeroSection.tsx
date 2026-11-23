@@ -10,18 +10,33 @@ const facts = [
   { value: "GKS", label: "generátory koloidného striebra" },
 ];
 
-export function HeroSection() {
+export function HeroSection({
+  image = "/images/hero-pcb.jpg",
+  imagePosition = "center",
+  dim = 0,
+}: {
+  /** fotka v pozadí (lokálna cesta alebo URL) */
+  image?: string;
+  /** object-position fotky, napr. "center 30%" */
+  imagePosition?: string;
+  /** extra rovnomerné stmavenie 0–1 (testovanie fotiek) */
+  dim?: number;
+} = {}) {
   return (
     <section className="relative isolate overflow-hidden bg-darker text-white">
       {/* Fotka plošného spoja */}
       <Image
-        src="/images/hero-pcb.jpg"
+        src={image}
         alt=""
         fill
         priority
         sizes="100vw"
         className="-z-20 object-cover saturate-[1.15]"
+        style={{ objectPosition: imagePosition }}
       />
+      {dim > 0 && (
+        <div className="absolute inset-0 -z-10 bg-darker" style={{ opacity: dim }} />
+      )}
       {/* Fotka ostáva ostrá a sýta. Stmavená je len zľahka (hore kvôli navigácii)
           a viac iba v mäkkom ovále priamo za nadpisom a textom. */}
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_44%_30%_at_50%_42%,rgba(6,15,38,0.62)_0%,rgba(6,15,38,0.45)_55%,transparent_100%),linear-gradient(180deg,rgba(6,15,38,0.55)_0%,rgba(6,15,38,0.22)_22%,rgba(6,15,38,0.18)_70%,rgba(6,15,38,0.4)_100%)]" />
