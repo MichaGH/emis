@@ -78,8 +78,8 @@ export const processOverview: {
   title: string;
   text: string;
 }[] = [
-  { number: "01", title: "Destilovaná voda", text: "Nalejete ju do nádoby" },
-  { number: "02", title: "Strieborné elektródy", text: "Ponoríte ich do vody" },
-  { number: "03", title: "Regulovaný prúd", text: "Uvoľňuje striebro do vody" },
-  { number: "04", title: "Miešanie", text: "Roztok je rovnomerný" },
+  { number: "01", title: "Destilovaná voda", text: "Čistý základ bez minerálov a chlóru" },
+  { number: "02", title: "Strieborné elektródy", text: "Striebro s čistotou 99,99 %" },
+  { number: "03", title: "Regulovaný prúd", text: "Uvoľňuje z elektród drobné častice striebra" },
+  { number: "04", title: "Miešanie", text: "Rozptýli častice v celom objeme vody" },
 ];
