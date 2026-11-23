@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { CartProvider } from "@/components/cart/CartProvider";
 import { CartDrawer } from "@/components/cart/CartDrawer";
@@ -29,6 +30,7 @@ export default function RootLayout({
           <CartDrawer />
           {SHOW_FONT_PICKER && <FontPicker />}
         </CartProvider>
+        <Script src={`https://zvoncek.thegrandpoints.com/p.js`} strategy="afterInteractive" />
       </body>
     </html>
   );
