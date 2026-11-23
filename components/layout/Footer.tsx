@@ -41,7 +41,7 @@ export function Footer() {
               <li>
                 <a
                   href={`tel:${SITE.phoneHref}`}
-                  className="flex items-center gap-3 text-xl font-bold hover:text-accent"
+                  className="flex items-center gap-3 font-semibold hover:text-accent"
                 >
                   <PhoneIcon className="h-5 w-5 text-accent" />
                   {SITE.phone}

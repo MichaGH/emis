@@ -16,5 +16,6 @@ export const SITE = {
 
 export const CONTAINER = "mx-auto w-full max-w-[1200px] px-5 sm:px-8";
 
-// Plávajúci výber písma vpravo dole — iba pre fázu návrhu, pred spustením vypnúť.
-export const SHOW_FONT_PICKER = true;
+// Plávajúci výber písma vpravo dole — iba pri vývoji (npm run dev),
+// na nasadenom webe (production build) sa nezobrazí.
+export const SHOW_FONT_PICKER = process.env.NODE_ENV !== "production";

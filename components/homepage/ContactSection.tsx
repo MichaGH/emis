@@ -1,6 +1,6 @@
 import { CONTAINER, SITE } from "@/constants";
 import { ContactForm } from "@/components/contact/ContactForm";
-import { PhoneIcon, MailIcon, PinIcon } from "@/components/ui/Icons";
+import { PhoneIcon, MailIcon, PinIcon, ArrowRightIcon } from "@/components/ui/Icons";
 
 export function ContactSection() {
   return (
@@ -15,28 +15,56 @@ export function ContactSection() {
             vývoj radi preberieme osobne.
           </p>
 
-          <a
-            href={`tel:${SITE.phoneHref}`}
-            className="mt-10 flex items-center gap-4 text-3xl font-extrabold tracking-tight hover:text-white/85 sm:text-4xl"
-          >
-            <PhoneIcon className="h-8 w-8" />
-            {SITE.phone}
-          </a>
-          <a
-            href={`mailto:${SITE.email}`}
-            className="mt-5 flex items-center gap-4 text-lg font-semibold hover:text-white/85"
-          >
-            <MailIcon className="h-6 w-6" />
-            {SITE.email}
-          </a>
-          <p className="mt-5 flex items-start gap-4 text-lg font-medium text-white/90">
-            <PinIcon className="mt-0.5 h-6 w-6 flex-none" />
-            <span>
-              {SITE.owner}
-              <br />
-              {SITE.street}, {SITE.city}
-            </span>
-          </p>
+          {/* Kontakty ako rovnocenné riadky — rovnaká veľkosť, oddelené čiarou */}
+          <ul className="mt-10 divide-y divide-white/15 border-y border-white/15">
+            {[
+              {
+                icon: PhoneIcon,
+                label: "Telefón",
+                value: SITE.phone,
+                href: `tel:${SITE.phoneHref}`,
+              },
+              {
+                icon: MailIcon,
+                label: "E-mail",
+                value: SITE.email,
+                href: `mailto:${SITE.email}`,
+              },
+              {
+                icon: PinIcon,
+                label: "Adresa",
+                value: `${SITE.street}, ${SITE.city}`,
+              },
+            ].map((item) => {
+              const Icon = item.icon;
+              const body = (
+                <>
+                  <Icon className="h-5 w-5 flex-none text-white/80" />
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-[13px] font-medium text-white/65">
+                      {item.label}
+                    </span>
+                    <span className="block truncate text-lg font-semibold">{item.value}</span>
+                  </span>
+                  {item.href && (
+                    <ArrowRightIcon className="h-4 w-4 flex-none opacity-0 transition-opacity group-hover:opacity-100" />
+                  )}
+                </>
+              );
+              return (
+                <li key={item.label}>
+                  {item.href ? (
+                    <a href={item.href} className="group flex items-center gap-4 py-4">
+                      {body}
+                    </a>
+                  ) : (
+                    <div className="flex items-center gap-4 py-4">{body}</div>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+          <p className="mt-4 text-[15px] text-white/70">{SITE.owner}</p>
         </div>
 
         <div className="lg:col-span-7">

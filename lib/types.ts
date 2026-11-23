@@ -41,6 +41,8 @@ export type ProcessStep = {
 
 export type ElectronicsProject = {
   code: string;
+  /** typ zariadenia — zobrazuje sa na štítku karty */
+  category: string;
   title: string;
   description: string;
   client?: string;

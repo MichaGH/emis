@@ -4,6 +4,7 @@ import { CONTAINER, SITE } from "@/constants";
 import { clients, electronicsProjects, workPrinciples } from "@/data/electronics";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { ContactSection } from "@/components/homepage/ContactSection";
+import { ProjectCard } from "@/components/electronics/ProjectCard";
 
 export const metadata: Metadata = {
   title: "Zákazková elektronika — EMIS",
@@ -29,25 +30,17 @@ export default function ElectronicsPage() {
       <section className="bg-surface">
         <div className={`${CONTAINER} py-20 lg:py-28`}>
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="mt-3 text-4xl font-extrabold tracking-[-0.03em] sm:text-5xl">
-              Čo sme už postavili
+            <h2 className="text-4xl font-extrabold tracking-[-0.03em] sm:text-5xl">
+              Vybrané realizácie
             </h2>
+            <p className="mt-4 text-lg text-foreground/75">
+              Zariadenia, ktoré sme navrhli a postavili pre výrobné firmy.
+            </p>
           </div>
 
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {electronicsProjects.map((p, i) => (
-              <article key={p.code} className="card flex flex-col rounded-[22px] p-7">
-                <span className="text-primary text-4xl font-extrabold leading-none tracking-[-0.04em]">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-6 text-xl font-bold leading-snug">{p.title}</h3>
-                <p className="mt-2 flex-1 leading-relaxed text-foreground/80">
-                  {p.description}
-                </p>
-                {p.client && (
-                  <p className="mt-5 font-bold text-primary">pre {p.client}</p>
-                )}
-              </article>
+            {electronicsProjects.map((p) => (
+              <ProjectCard key={p.code} project={p} />
             ))}
           </div>
         </div>

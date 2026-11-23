@@ -76,27 +76,30 @@ export default async function ProductPage(props: PageProps<"/produkty/[slug]">) 
               {product.keySpecs.map((s) => s.value).join("  ·  ")}
             </p>
 
-            <div className="card mt-8 rounded-[22px] p-6 text-foreground">
-              <div className="flex items-end justify-between">
-                <div>
-                  <p className="text-sm font-semibold text-muted">Cena s DPH</p>
-                  <p className="mt-1 text-4xl font-extrabold text-primary">
+            {/* Cena a nákup priamo na tmavom pozadí — bez samostatnej karty */}
+            <div className="mt-8 border-t border-white/15 pt-7">
+              <div className="flex items-end justify-between gap-4">
+                <p>
+                  <span className="block text-sm font-semibold text-dark-muted">Cena s DPH</span>
+                  <span className="mt-1 block text-4xl font-extrabold tracking-tight">
                     {formatPrice(product.price)}
-                  </p>
-                </div>
-                <span className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-[#1c7a3e]">
+                  </span>
+                </p>
+                <span className="inline-flex items-center gap-1.5 pb-1 text-[15px] font-semibold text-[#6fd49a]">
                   <CheckIcon className="h-4 w-4" />
                   {product.available ? "Skladom" : "Na objednávku"}
                 </span>
               </div>
-              <AddToCartButton product={product} size="lg" className="mt-5 w-full" />
-              <a
-                href={`tel:${SITE.phoneHref}`}
-                className="mt-3 flex items-center justify-center gap-2 rounded-xl bg-surface px-5 py-3.5 font-semibold hover:bg-surface-strong"
-              >
-                <PhoneIcon className="h-[18px] w-[18px] text-primary" />
-                Poradiť sa: {SITE.phone}
-              </a>
+              <div className="mt-6 grid gap-3 sm:grid-cols-[1.4fr_1fr]">
+                <AddToCartButton product={product} size="lg" className="w-full" />
+                <a
+                  href={`tel:${SITE.phoneHref}`}
+                  className="btn-outline-light flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 font-semibold"
+                >
+                  <PhoneIcon className="h-[18px] w-[18px]" />
+                  Poradiť sa
+                </a>
+              </div>
             </div>
           </div>
         </div>
