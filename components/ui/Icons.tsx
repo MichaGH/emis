@@ -29,6 +29,24 @@ export function PlusIcon(props: IconProps) {
   );
 }
 
+export function ShieldIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M12 3 5 6v5.5c0 4.4 3 8 7 9.5 4-1.5 7-5.1 7-9.5V6l-7-3Z" />
+      <path d="m9 12 2.2 2.2L15.5 10" />
+    </svg>
+  );
+}
+
+export function SwirlIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3" />
+      <path d="M19.5 4.5v4h-4" />
+    </svg>
+  );
+}
+
 export function MinusIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>

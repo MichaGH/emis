@@ -2,12 +2,12 @@ import Image from "next/image";
 import { SITE, CONTAINER } from "@/constants";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { ProcessOutline } from "@/components/illustrations/ProcessOutline";
+import { ElectronicsOutline } from "@/components/illustrations/ElectronicsOutline";
 
 const facts = [
-  { value: `od ${SITE.founded}`, label: "vývoj a výroba elektroniky" },
+  { value: `${SITE.founded}`, label: "rok založenia v Nižnej" },
   { value: "Na mieru", label: "prístroje podľa zadania" },
   { value: "GKS", label: "generátory koloidného striebra" },
-  { value: "Nižná", label: "výroba a servis na Orave" },
 ];
 
 export function HeroSection() {
@@ -20,45 +20,46 @@ export function HeroSection() {
         fill
         priority
         sizes="100vw"
-        className="-z-20 object-cover"
+        className="-z-20 object-cover saturate-[1.15]"
       />
-      {/* Navy prekrytie, aby text ostal čitateľný */}
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(6,15,38,0.82)_0%,rgba(10,24,56,0.72)_45%,rgba(6,15,38,0.95)_100%)]" />
+      {/* Fotka ostáva ostrá a sýta. Stmavená je len zľahka (hore kvôli navigácii)
+          a viac iba v mäkkom ovále priamo za nadpisom a textom. */}
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_44%_30%_at_50%_42%,rgba(6,15,38,0.62)_0%,rgba(6,15,38,0.45)_55%,transparent_100%),linear-gradient(180deg,rgba(6,15,38,0.55)_0%,rgba(6,15,38,0.22)_22%,rgba(6,15,38,0.18)_70%,rgba(6,15,38,0.4)_100%)]" />
 
-      {/* Nenápadný obrys generátora v pozadí */}
+      {/* Nenápadné obrysy v pozadí — vľavo testovacie pracovisko, vpravo generátor */}
+      <ElectronicsOutline className="pointer-events-none absolute -left-20 top-16 -z-10 hidden h-[95%] text-white/[0.09] lg:block" />
       <ProcessOutline className="pointer-events-none absolute -right-24 top-10 -z-10 hidden h-[115%] text-white/[0.09] lg:block" />
-      <ProcessOutline className="pointer-events-none absolute -left-40 bottom-[-30%] -z-10 hidden h-[90%] -scale-x-100 text-white/[0.05] xl:block" />
 
-      <div className={`${CONTAINER} flex flex-col items-center pb-16 pt-24 text-center sm:pt-32 lg:pb-20 lg:pt-40`}>
-        <p className="glass-dark rounded-full px-4 py-1.5 text-sm font-semibold text-white/90">
-          EMIS · Nižná · od roku {SITE.founded}
-        </p>
+      <div className={`${CONTAINER} flex flex-col items-center pb-12 pt-[calc(var(--nav-h)+5.5rem)] text-center sm:pt-[calc(var(--nav-h)+7rem)] lg:min-h-svh lg:pb-14 lg:pt-[calc(var(--nav-h)+3rem)]`}>
+        {/* Na desktope je hero na celú výšku okna, text je v strede, štatistiky dole */}
+        <div className="flex flex-1 flex-col items-center justify-center">
+          <h1 className="max-w-4xl text-[3rem] [text-shadow:0_2px_30px_rgba(6,15,38,0.7),0_1px_3px_rgba(6,15,38,0.5)] font-extrabold leading-[1.02] tracking-[-0.035em] sm:text-7xl lg:text-[5.75rem]">
+            Elektronika na mieru
+          </h1>
+          <p className="mt-7 max-w-2xl text-lg font-medium leading-relaxed text-white [text-shadow:0_1px_14px_rgba(6,15,38,0.85),0_1px_2px_rgba(6,15,38,0.6)] sm:text-xl">
+            Navrhujeme a vyrábame elektronické zariadenia — od jednoúčelových
+            prístrojov pre výrobu až po generátory koloidného striebra pre
+            domácnosť.
+          </p>
 
-        <h1 className="mt-7 max-w-4xl text-[2.9rem] font-extrabold leading-[1.02] tracking-[-0.035em] sm:text-7xl lg:text-[5.5rem]">
-          Elektronika na mieru
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
-          Navrhujeme a vyrábame elektronické zariadenia — od jednoúčelových
-          prístrojov pre výrobu až po generátory koloidného striebra pre
-          domácnosť.
-        </p>
-
-        <div className="mt-10 flex flex-wrap justify-center gap-3">
-          <ButtonLink href="/#eshop">Generátory striebra</ButtonLink>
-          <ButtonLink href="/elektronika" variant="glass">
-            Zákazkový vývoj
-          </ButtonLink>
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
+            <ButtonLink href="/#eshop">Generátory striebra</ButtonLink>
+            <ButtonLink href="/elektronika" variant="glass">
+              Zákazkový vývoj
+            </ButtonLink>
+          </div>
         </div>
 
-        <dl className="glass-dark mt-20 grid w-full max-w-5xl grid-cols-2 gap-y-6 rounded-2xl px-6 py-7 text-left sm:px-10 lg:mt-28 lg:grid-cols-4">
+        {/* Štatistiky na sklenenom paneli */}
+        <dl className="mt-16 grid bg-darker/45 ring-1 ring-inset ring-white/15 backdrop-blur-xl w-full max-w-4xl grid-cols-1 divide-y divide-white/15 rounded-2xl sm:grid-cols-3 sm:divide-x sm:divide-y-0 lg:mt-12">
           {facts.map((fact) => (
-            <div key={fact.label} className="px-2">
+            <div key={fact.label} className="px-6 py-6 sm:py-7">
               <dt className="sr-only">{fact.label}</dt>
               <dd>
-                <span className="block text-2xl font-extrabold tracking-tight sm:text-[1.75rem]">
+                <span className="block text-3xl font-extrabold tracking-tight sm:text-4xl">
                   {fact.value}
                 </span>
-                <span className="mt-1 block text-[15px] font-medium text-white/75">
+                <span className="mt-1.5 block text-[15px] font-medium text-white/85">
                   {fact.label}
                 </span>
               </dd>

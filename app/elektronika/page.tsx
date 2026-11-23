@@ -20,18 +20,15 @@ export default function ElectronicsPage() {
         lead={`Od roku ${SITE.founded} navrhujeme hardvér aj softvér prístrojov presne podľa toho, čo zákazník potrebuje.`}
         image="/images/chip-tweezers.jpg"
       >
-        <p className="mt-12 text-sm font-bold uppercase tracking-[0.1em] text-white/70">
+        <p className="mt-12 text-[15px] font-semibold text-white/75">
           Zariadenia sme dodali pre
         </p>
         <p className="mt-2 text-xl font-bold">{clients.join("  ·  ")}</p>
       </PageHeader>
 
-      <section className="section-sheen">
+      <section className="bg-surface">
         <div className={`${CONTAINER} py-20 lg:py-28`}>
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.12em] text-primary">
-              Realizácie
-            </p>
             <h2 className="mt-3 text-4xl font-extrabold tracking-[-0.03em] sm:text-5xl">
               Čo sme už postavili
             </h2>
@@ -39,8 +36,8 @@ export default function ElectronicsPage() {
 
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {electronicsProjects.map((p, i) => (
-              <article key={p.code} className="card-gloss flex flex-col rounded-[22px] p-7">
-                <span className="text-metal-blue text-4xl font-extrabold leading-none tracking-[-0.04em]">
+              <article key={p.code} className="card flex flex-col rounded-[22px] p-7">
+                <span className="text-primary text-4xl font-extrabold leading-none tracking-[-0.04em]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-6 text-xl font-bold leading-snug">{p.title}</h3>
@@ -68,16 +65,13 @@ export default function ElectronicsPage() {
             />
           </div>
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.12em] text-primary">
-              Ako pracujeme
-            </p>
             <h2 className="mt-3 text-4xl font-extrabold tracking-[-0.03em] sm:text-5xl">
               Od schémy po hotový prístroj
             </h2>
             <ol className="mt-10 space-y-7">
               {workPrinciples.map((p, i) => (
                 <li key={p.title} className="grid grid-cols-[4.25rem_1fr]">
-                  <span className="text-metal-blue text-[2.6rem] font-extrabold leading-none tracking-[-0.04em]">
+                  <span className="text-primary text-[2.6rem] font-extrabold leading-none tracking-[-0.04em]">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>

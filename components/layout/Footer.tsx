@@ -35,7 +35,7 @@ export function Footer() {
         ))}
 
         <div className="md:col-span-4">
-          <div className="glass-dark rounded-2xl p-6">
+          <div className="rounded-2xl bg-white/[0.06] p-6">
             <h3 className="font-bold">Kontakt</h3>
             <ul className="mt-5 space-y-4">
               <li>

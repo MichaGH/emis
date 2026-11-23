@@ -71,3 +71,18 @@ export const silverFaq: Faq[] = [
       "Áno. Napíšte alebo zavolajte, pripravíme elektródy podľa vášho generátora.",
   },
 ];
+
+// Skrátený postup pre homepage — ikonky a jeden krátky riadok.
+export type ProcessIcon = "droplet" | "electrode" | "bolt" | "stir";
+
+export const processOverview: {
+  number: string;
+  icon: ProcessIcon;
+  title: string;
+  text: string;
+}[] = [
+  { number: "01", icon: "droplet", title: "Destilovaná voda", text: "Nalejete ju do nádoby" },
+  { number: "02", icon: "electrode", title: "Strieborné elektródy", text: "Ponoríte ich do vody" },
+  { number: "03", icon: "bolt", title: "Regulovaný prúd", text: "Uvoľňuje striebro do vody" },
+  { number: "04", icon: "stir", title: "Miešanie", text: "Roztok je rovnomerný" },
+];

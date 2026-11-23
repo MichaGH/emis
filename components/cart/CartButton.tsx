@@ -12,7 +12,7 @@ export function CartButton() {
       type="button"
       onClick={openCart}
       aria-label={`Košík, ${pluralItems(count)}`}
-      className="btn-gloss inline-flex h-11 items-center gap-2 rounded-full px-5 font-bold"
+      className="btn-primary inline-flex h-11 items-center gap-2 rounded-lg px-5 font-bold"
     >
       <CartIcon className="h-5 w-5" />
       <span className="hidden sm:inline">Košík</span>

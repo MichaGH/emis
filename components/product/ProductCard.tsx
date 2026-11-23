@@ -8,10 +8,10 @@ export function ProductCard({ product }: { product: Product }) {
   const href = `/produkty/${product.slug}`;
 
   return (
-    <article className="card-gloss group flex flex-col overflow-hidden rounded-[22px] transition-transform duration-300 hover:-translate-y-1">
+    <article className="card group flex flex-col overflow-hidden rounded-[22px] transition-transform duration-300 hover:-translate-y-1">
       <Link href={href} className="relative block">
         <ProductMedia product={product} className="aspect-[5/4]" />
-        <span className="absolute left-5 top-5 text-sm font-bold uppercase tracking-[0.08em] text-primary">
+        <span className="absolute left-5 top-5 text-sm font-semibold text-muted">
           {product.category}
         </span>
       </Link>

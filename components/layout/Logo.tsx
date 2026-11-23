@@ -7,7 +7,7 @@ export function Logo({ dark = false }: { dark?: boolean }) {
     <Link
       href="/"
       aria-label={`${SITE.name} — úvod`}
-      className={`text-[26px] font-extrabold leading-none tracking-[0.04em] ${
+      className={`font-display text-[26px] transition-colors font-extrabold leading-none tracking-[0.04em] ${
         dark ? "text-white" : "text-primary"
       }`}
     >

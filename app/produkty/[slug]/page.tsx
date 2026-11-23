@@ -34,8 +34,8 @@ export default async function ProductPage(props: PageProps<"/produkty/[slug]">) 
 
   return (
     <>
-      <section className="panel-navy text-white">
-        <div className={`${CONTAINER} pt-8 lg:pt-10`}>
+      <section className="bg-dark text-white">
+        <div className={`${CONTAINER} pt-[calc(var(--nav-h)+2rem)] lg:pt-[calc(var(--nav-h)+2.5rem)]`}>
           <nav aria-label="Omrvinky" className="text-sm font-semibold">
             <Link href="/" className="text-accent hover:underline">
               Úvod
@@ -62,10 +62,8 @@ export default async function ProductPage(props: PageProps<"/produkty/[slug]">) 
           </div>
 
           <div className="lg:col-span-5">
-            <span className="inline-block rounded-md bg-primary px-3 py-1.5 text-sm font-semibold text-white">
-              {product.category}
-            </span>
-            <h1 className="mt-4 text-5xl font-extrabold tracking-[-0.03em] sm:text-6xl">
+            <p className="text-[15px] font-semibold text-accent">{product.category}</p>
+            <h1 className="mt-2 text-5xl font-extrabold tracking-[-0.03em] sm:text-6xl">
               {product.code}
             </h1>
             <p className="mt-2 text-xl font-semibold text-dark-muted">{product.name}</p>
@@ -74,16 +72,11 @@ export default async function ProductPage(props: PageProps<"/produkty/[slug]">) 
               {product.shortDescription}
             </p>
 
-            <ul className="mt-6 flex flex-wrap gap-2">
-              {product.keySpecs.map((spec) => (
-                <li key={spec.label} className="rounded-lg bg-dark-surface px-4 py-2.5">
-                  <span className="text-dark-muted">{spec.label}: </span>
-                  <span className="font-bold">{spec.value}</span>
-                </li>
-              ))}
-            </ul>
+            <p className="mt-5 text-lg font-semibold">
+              {product.keySpecs.map((s) => s.value).join("  ·  ")}
+            </p>
 
-            <div className="card-gloss mt-8 rounded-[22px] p-6 text-foreground">
+            <div className="card mt-8 rounded-[22px] p-6 text-foreground">
               <div className="flex items-end justify-between">
                 <div>
                   <p className="text-sm font-semibold text-muted">Cena s DPH</p>
@@ -91,7 +84,7 @@ export default async function ProductPage(props: PageProps<"/produkty/[slug]">) 
                     {formatPrice(product.price)}
                   </p>
                 </div>
-                <span className="inline-flex items-center gap-1.5 rounded-lg bg-[#e3f5e9] px-3 py-1.5 text-sm font-semibold text-[#1c7a3e]">
+                <span className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-[#1c7a3e]">
                   <CheckIcon className="h-4 w-4" />
                   {product.available ? "Skladom" : "Na objednávku"}
                 </span>
@@ -110,7 +103,7 @@ export default async function ProductPage(props: PageProps<"/produkty/[slug]">) 
       </section>
 
       <section className={`${CONTAINER} grid gap-6 py-16 lg:grid-cols-12 lg:py-24`}>
-        <div className="card-gloss rounded-[22px] p-7 sm:p-10 lg:col-span-7">
+        <div className="card rounded-[22px] p-7 sm:p-10 lg:col-span-7">
           <h2 className="text-2xl font-extrabold">Popis</h2>
           <div className="mt-5 space-y-4 text-lg leading-relaxed text-foreground/90">
             {product.description.map((p) => (
@@ -135,7 +128,7 @@ export default async function ProductPage(props: PageProps<"/produkty/[slug]">) 
         </div>
 
         <div className="lg:col-span-5">
-          <div className="panel-blue rounded-[22px] p-7 text-white sm:p-8">
+          <div className="bg-primary rounded-[22px] p-7 text-white sm:p-8">
             <h2 className="text-2xl font-extrabold">Technické parametre</h2>
             <dl className="mt-6 space-y-2">
               {product.specs.map((spec) => (
@@ -156,7 +149,7 @@ export default async function ProductPage(props: PageProps<"/produkty/[slug]">) 
         </div>
       </section>
 
-      <section className="section-sheen">
+      <section className="bg-surface">
         <div className={`${CONTAINER} py-16 lg:py-20`}>
           <h2 className="text-3xl font-extrabold">Ďalšie produkty</h2>
           <div className="mt-8 grid gap-6 md:grid-cols-2">

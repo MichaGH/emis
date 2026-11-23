@@ -4,12 +4,9 @@ import { PhoneIcon, MailIcon, PinIcon } from "@/components/ui/Icons";
 
 export function ContactSection() {
   return (
-    <section id="kontakt" className="panel-blue scroll-mt-20 text-white">
+    <section id="kontakt" className="bg-primary scroll-mt-20 text-white">
       <div className={`${CONTAINER} grid gap-12 py-20 lg:grid-cols-12 lg:gap-16 lg:py-28`}>
         <div className="lg:col-span-5">
-          <p className="text-sm font-bold uppercase tracking-[0.12em] text-white/80">
-            Kontakt
-          </p>
           <h2 className="mt-3 text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] sm:text-5xl">
             Zavolajte priamo konštruktérovi
           </h2>

@@ -6,7 +6,7 @@ const label = "text-sm font-bold text-foreground";
 
 export function ContactForm() {
   return (
-    <form className="card-gloss h-full rounded-[22px] p-6 text-foreground sm:p-9" action="#">
+    <form className="card h-full rounded-[22px] p-6 text-foreground sm:p-9" action="#">
       <p className="text-2xl font-extrabold">Napíšte nám</p>
       <p className="mt-1 text-muted">Odpovieme spravidla do dvoch pracovných dní.</p>
 
@@ -37,7 +37,7 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="btn-gloss mt-7 w-full rounded-full px-6 py-4 font-bold"
+        className="btn-primary mt-7 w-full rounded-lg px-6 py-4 font-bold"
       >
         Odoslať správu
       </button>

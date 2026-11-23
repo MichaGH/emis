@@ -20,7 +20,7 @@ export function PageHeader({
       <Image src={image} alt="" fill priority sizes="100vw" className="-z-20 object-cover" />
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(6,15,38,0.85)_0%,rgba(10,24,56,0.8)_60%,rgba(6,15,38,0.95)_100%)]" />
 
-      <div className={`${CONTAINER} pb-16 pt-10 lg:pb-24 lg:pt-14`}>
+      <div className={`${CONTAINER} pb-16 pt-[calc(var(--nav-h)+2.5rem)] lg:pb-24 lg:pt-[calc(var(--nav-h)+3.5rem)]`}>
         <nav aria-label="Omrvinky" className="text-sm font-semibold">
           <Link href="/" className="text-accent hover:underline">
             Úvod

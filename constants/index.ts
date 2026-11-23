@@ -15,3 +15,6 @@ export const SITE = {
 } as const;
 
 export const CONTAINER = "mx-auto w-full max-w-[1200px] px-5 sm:px-8";
+
+// Plávajúci výber písma vpravo dole — iba pre fázu návrhu, pred spustením vypnúť.
+export const SHOW_FONT_PICKER = true;

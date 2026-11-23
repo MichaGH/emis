@@ -4,9 +4,9 @@ import { ArrowRightIcon } from "@/components/ui/Icons";
 type Variant = "primary" | "white" | "glass";
 
 const styles: Record<Variant, string> = {
-  primary: "btn-gloss",
-  white: "btn-gloss-white",
-  glass: "glass-dark text-white hover:bg-white/10",
+  primary: "btn-primary",
+  white: "btn-light",
+  glass: "btn-outline-light",
 };
 
 export function ButtonLink({
@@ -25,7 +25,7 @@ export function ButtonLink({
   return (
     <Link
       href={href}
-      className={`group inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-3.5 text-[15px] font-bold ${styles[variant]} ${className}`}
+      className={`group inline-flex items-center justify-center gap-2.5 rounded-lg px-7 py-3.5 text-[15px] font-bold ${styles[variant]} ${className}`}
     >
       {children}
       {arrow && (

@@ -6,7 +6,7 @@ import { CheckIcon } from "@/components/ui/Icons";
 
 export function ElectronicsSection() {
   return (
-    <section className="bg-white pb-20 lg:pb-28">
+    <section className="bg-white py-20 lg:py-28">
       <div className={CONTAINER}>
         <div className="relative isolate overflow-hidden rounded-[28px] text-white">
           <Image
@@ -20,9 +20,6 @@ export function ElectronicsSection() {
 
           <div className="grid gap-12 p-8 sm:p-12 lg:grid-cols-12 lg:p-16">
             <div className="lg:col-span-5">
-              <p className="text-sm font-bold uppercase tracking-[0.12em] text-accent">
-                Zákazková elektronika
-              </p>
               <h2 className="mt-3 text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] sm:text-5xl">
                 Prístroj presne podľa vášho zadania
               </h2>
@@ -38,7 +35,7 @@ export function ElectronicsSection() {
               </div>
             </div>
 
-            <ul className="glass-dark grid content-start gap-x-8 gap-y-5 rounded-2xl p-7 sm:grid-cols-2 lg:col-span-6 lg:col-start-7">
+            <ul className="grid content-start gap-x-8 gap-y-5 rounded-2xl bg-white/[0.07] p-7 sm:grid-cols-2 lg:col-span-6 lg:col-start-7">
               {electronicsProjects.map((p) => (
                 <li key={p.code} className="flex gap-3">
                   <CheckIcon className="mt-1 h-5 w-5 flex-none text-accent" />

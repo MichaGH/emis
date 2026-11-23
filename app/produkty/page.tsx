@@ -21,7 +21,7 @@ export default function ProductsPage() {
         lead="Všetky prístroje navrhujeme a skladáme sami. Ku generátorom dodávame elektródy z 99,99 % striebra s certifikátom výrobcu."
       />
 
-      <section className="section-sheen">
+      <section className="bg-surface">
         <div className={`${CONTAINER} py-16 lg:py-20`}>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => (

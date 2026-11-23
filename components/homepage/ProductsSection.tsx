@@ -6,12 +6,9 @@ import { ArrowRightIcon } from "@/components/ui/Icons";
 
 export function ProductsSection() {
   return (
-    <section id="eshop" className="section-sheen scroll-mt-20">
+    <section id="eshop" className="scroll-mt-20 bg-white">
       <div className={`${CONTAINER} py-20 lg:py-28`}>
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.12em] text-primary">
-            E-shop
-          </p>
           <h2 className="mt-3 text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] sm:text-5xl">
             Generátory koloidného striebra
           </h2>
@@ -27,7 +24,7 @@ export function ProductsSection() {
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 rounded-[22px] bg-white/70 px-7 py-5 text-center sm:flex-row sm:text-left">
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 rounded-[22px] bg-surface px-7 py-5 text-center sm:flex-row sm:text-left">
           <p className="font-semibold">
             Potrebujete väčšie množstvo? Modely{" "}
             <span className="text-primary">GKS 505</span> a{" "}

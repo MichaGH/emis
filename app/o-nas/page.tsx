@@ -23,9 +23,6 @@ export default function AboutPage() {
       <section className="bg-white">
         <div className={`${CONTAINER} py-20 lg:py-28`}>
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.12em] text-primary">
-              História
-            </p>
             <h2 className="mt-3 text-4xl font-extrabold tracking-[-0.03em] sm:text-5xl">
               Elektronika z Oravy od roku {SITE.founded}
             </h2>
@@ -33,8 +30,8 @@ export default function AboutPage() {
 
           <ol className="mt-14 grid gap-5 lg:grid-cols-3">
             {timeline.map((t) => (
-              <li key={t.year} className="card-gloss rounded-[22px] p-8">
-                <span className="text-metal-blue text-4xl font-extrabold tracking-[-0.03em]">
+              <li key={t.year} className="card rounded-[22px] p-8">
+                <span className="text-primary text-4xl font-extrabold tracking-[-0.03em]">
                   {t.year}
                 </span>
                 <p className="mt-4 text-lg leading-relaxed">{t.text}</p>
@@ -44,12 +41,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="panel-navy text-white">
+      <section className="bg-dark text-white">
         <div className={`${CONTAINER} grid items-center gap-14 py-20 lg:grid-cols-2 lg:py-28`}>
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.12em] text-accent">
-              Ako pracujeme
-            </p>
             <h2 className="mt-3 text-4xl font-extrabold tracking-[-0.03em] sm:text-5xl">
               Jeden človek, celý prístroj
             </h2>
@@ -68,7 +62,7 @@ export default function AboutPage() {
                 </li>
               ))}
             </ol>
-            <p className="mt-12 text-sm font-bold uppercase tracking-[0.1em] text-white/70">
+            <p className="mt-12 text-[15px] font-semibold text-white/75">
               Zariadenia sme dodali pre
             </p>
             <p className="mt-2 text-lg font-bold">{clients.join("  ·  ")}</p>

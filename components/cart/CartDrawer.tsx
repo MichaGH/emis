@@ -47,7 +47,7 @@ export function CartDrawer() {
         role="dialog"
         aria-label="Košík"
       >
-        <header className="panel-blue flex items-center justify-between px-6 py-5 text-white">
+        <header className="bg-primary flex items-center justify-between px-6 py-5 text-white">
           <div>
             <h2 className="text-xl font-bold">Košík</h2>
             <p className="text-sm text-white/85">
@@ -71,7 +71,7 @@ export function CartDrawer() {
               <button
                 type="button"
                 onClick={closeCart}
-                className="mt-4 btn-gloss rounded-full px-5 py-3 font-semibold"
+                className="mt-4 btn-primary rounded-lg px-5 py-3 font-semibold"
               >
                 Pokračovať vo výbere
               </button>
@@ -149,7 +149,7 @@ export function CartDrawer() {
               </p>
               <button
                 type="button"
-                className="btn-gloss mt-4 flex w-full items-center justify-center gap-2 rounded-full px-5 py-4 font-bold"
+                className="btn-primary mt-4 flex w-full items-center justify-center gap-2 rounded-lg px-5 py-4 font-bold"
               >
                 Pokračovať k objednávke
                 <ArrowRightIcon className="h-4 w-4" />

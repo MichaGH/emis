@@ -19,7 +19,7 @@ export function AddToCartButton({
   if (!product.available) {
     return (
       <span
-        className={`btn-gloss-white inline-flex items-center justify-center rounded-full font-bold ${pad} ${className}`}
+        className={`btn-light inline-flex items-center justify-center rounded-lg font-bold ${pad} ${className}`}
       >
         Na dopyt
       </span>
@@ -30,7 +30,7 @@ export function AddToCartButton({
     <button
       type="button"
       onClick={() => addItem(product)}
-      className={`btn-gloss inline-flex items-center justify-center gap-2 rounded-full font-bold ${pad} ${className}`}
+      className={`btn-primary inline-flex items-center justify-center gap-2 rounded-lg font-bold ${pad} ${className}`}
     >
       <CartIcon className="h-[18px] w-[18px]" />
       Do košíka

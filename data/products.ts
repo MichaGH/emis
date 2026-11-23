@@ -1,7 +1,7 @@
 import type { Product } from "@/lib/types";
 
 // Produkty v e-shope. Popisy a parametre vychádzajú z pôvodného webu emis.sk.
-// CENY SÚ ZATIAĽ ORIENTAČNÉ — treba ich nahradiť podľa aktuálneho cenníka klienta.
+// CENY SÚ ZÁMERNE PLACEHOLDER (999 €) — doplniť podľa aktuálneho cenníka klienta.
 export const products: Product[] = [
   {
     id: "gks-904",
@@ -37,7 +37,7 @@ export const products: Product[] = [
       "2 strieborné elektródy 99,99 %",
       "návod na výrobu",
     ],
-    price: 89,
+    price: 999,
     available: true,
     illustration: "gks904",
   },
@@ -76,7 +76,7 @@ export const products: Product[] = [
       "2 strieborné elektródy 99,99 %",
       "návod na výrobu",
     ],
-    price: 159,
+    price: 999,
     available: true,
     illustration: "gks906",
   },
@@ -105,7 +105,7 @@ export const products: Product[] = [
       { label: "Napájanie", value: "sieťový adaptér" },
     ],
     inBox: ["miešačka MGM 101", "sieťový adaptér", "magnetické miešadlo"],
-    price: 69,
+    price: 999,
     available: true,
     illustration: "mgm101",
   },
