@@ -79,6 +79,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* Miesto pre scrollbar je rezervované stále — pri otvorení košíka
+     (overflow: hidden) sa stránka neposunie. */
+  scrollbar-gutter: stable;
 }
 
 body {

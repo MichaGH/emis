@@ -31,15 +31,15 @@ export function HeroSection({
         fill
         priority
         sizes="100vw"
-        className="-z-20 object-cover saturate-[1.15]"
+        className="-z-20 object-cover brightness-[1.15] contrast-[1.12] saturate-[1.2]"
         style={{ objectPosition: imagePosition }}
       />
       {dim > 0 && (
         <div className="absolute inset-0 -z-10 bg-darker" style={{ opacity: dim }} />
       )}
-      {/* Fotka ostáva ostrá a sýta. Stmavená je len zľahka (hore kvôli navigácii)
-          a viac iba v mäkkom ovále priamo za nadpisom a textom. */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_44%_30%_at_50%_42%,rgba(6,15,38,0.62)_0%,rgba(6,15,38,0.45)_55%,transparent_100%),linear-gradient(180deg,rgba(6,15,38,0.55)_0%,rgba(6,15,38,0.22)_22%,rgba(6,15,38,0.18)_70%,rgba(6,15,38,0.4)_100%)]" />
+      {/* Fotka je ostrá, jasná a kontrastná. Stmavený je len pás hore (navigácia)
+          a jemný ovál priamo za textom; čitateľnosť dopĺňa tieň písma. */}
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_44%_30%_at_50%_42%,rgba(6,15,38,0.68)_0%,rgba(6,15,38,0.5)_50%,transparent_100%),linear-gradient(180deg,rgba(6,15,38,0.5)_0%,transparent_20%,transparent_75%,rgba(6,15,38,0.3)_100%)]" />
 
       {/* Nenápadné obrysy v pozadí — vľavo testovacie pracovisko, vpravo generátor */}
       <ElectronicsOutline className="pointer-events-none absolute -left-20 top-16 -z-10 hidden h-[95%] text-white/[0.09] lg:block" />

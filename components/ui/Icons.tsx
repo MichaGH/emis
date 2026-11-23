@@ -38,15 +38,6 @@ export function ShieldIcon(props: IconProps) {
   );
 }
 
-export function SwirlIcon(props: IconProps) {
-  return (
-    <svg {...base} {...props}>
-      <path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3" />
-      <path d="M19.5 4.5v4h-4" />
-    </svg>
-  );
-}
-
 export function MinusIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>

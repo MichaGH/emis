@@ -1,8 +1,6 @@
-import Link from "next/link";
 import { CONTAINER } from "@/constants";
 import { products } from "@/data/products";
 import { ProductCard } from "@/components/product/ProductCard";
-import { ArrowRightIcon } from "@/components/ui/Icons";
 
 export function ProductsSection() {
   return (
@@ -24,21 +22,6 @@ export function ProductsSection() {
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 rounded-[22px] bg-surface px-7 py-5 text-center sm:flex-row sm:text-left">
-          <p className="font-semibold">
-            Potrebujete väčšie množstvo? Modely{" "}
-            <span className="text-primary">GKS 505</span> a{" "}
-            <span className="text-primary">GKS 905</span> dodávame na
-            objednávku.
-          </p>
-          <Link
-            href="/produkty"
-            className="inline-flex items-center gap-2 font-bold text-primary hover:underline"
-          >
-            Porovnať modely
-            <ArrowRightIcon className="h-4 w-4" />
-          </Link>
-        </div>
       </div>
     </section>
   );

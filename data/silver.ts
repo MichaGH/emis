@@ -72,17 +72,14 @@ export const silverFaq: Faq[] = [
   },
 ];
 
-// Skrátený postup pre homepage — ikonky a jeden krátky riadok.
-export type ProcessIcon = "droplet" | "electrode" | "bolt" | "stir";
-
+// Skrátený postup pre homepage — veľké čísla a jeden krátky riadok.
 export const processOverview: {
   number: string;
-  icon: ProcessIcon;
   title: string;
   text: string;
 }[] = [
-  { number: "01", icon: "droplet", title: "Destilovaná voda", text: "Nalejete ju do nádoby" },
-  { number: "02", icon: "electrode", title: "Strieborné elektródy", text: "Ponoríte ich do vody" },
-  { number: "03", icon: "bolt", title: "Regulovaný prúd", text: "Uvoľňuje striebro do vody" },
-  { number: "04", icon: "stir", title: "Miešanie", text: "Roztok je rovnomerný" },
+  { number: "01", title: "Destilovaná voda", text: "Nalejete ju do nádoby" },
+  { number: "02", title: "Strieborné elektródy", text: "Ponoríte ich do vody" },
+  { number: "03", title: "Regulovaný prúd", text: "Uvoľňuje striebro do vody" },
+  { number: "04", title: "Miešanie", text: "Roztok je rovnomerný" },
 ];
