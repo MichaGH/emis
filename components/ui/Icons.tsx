@@ -5,7 +5,7 @@ type IconProps = SVGProps<SVGSVGElement>;
 const base = {
   fill: "none",
   stroke: "currentColor",
-  strokeWidth: 1.6,
+  strokeWidth: 1.9,
   strokeLinecap: "round" as const,
   strokeLinejoin: "round" as const,
   viewBox: "0 0 24 24",
@@ -14,9 +14,9 @@ const base = {
 export function CartIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>
-      <path d="M3 4h2l2.2 11.2a1.5 1.5 0 0 0 1.5 1.2h8.1a1.5 1.5 0 0 0 1.5-1.2L21 7H6" />
-      <circle cx="9" cy="20" r="1.2" />
-      <circle cx="18" cy="20" r="1.2" />
+      <path d="M3 4h2.5l2.2 11h10.6L20.5 7H6.3" />
+      <circle cx="9" cy="19.5" r="1.3" />
+      <circle cx="17" cy="19.5" r="1.3" />
     </svg>
   );
 }
@@ -25,6 +25,14 @@ export function PlusIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>
       <path d="M12 5v14M5 12h14" />
+    </svg>
+  );
+}
+
+export function MinusIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M5 12h14" />
     </svg>
   );
 }
@@ -40,23 +48,15 @@ export function CloseIcon(props: IconProps) {
 export function ArrowRightIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>
-      <path d="M5 12h14M13 6l6 6-6 6" />
+      <path d="M4 12h15M13 6l6 6-6 6" />
     </svg>
   );
 }
 
-export function CheckIcon(props: IconProps) {
+export function ArrowLeftIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>
-      <path d="M20 6L9 17l-5-5" />
-    </svg>
-  );
-}
-
-export function TrashIcon(props: IconProps) {
-  return (
-    <svg {...base} {...props}>
-      <path d="M4 7h16M9 7V5h6v2M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12" />
+      <path d="M20 12H5M11 6l-6 6 6 6" />
     </svg>
   );
 }
@@ -64,24 +64,41 @@ export function TrashIcon(props: IconProps) {
 export function MenuIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>
-      <path d="M4 7h16M4 12h16M4 17h16" />
+      <path d="M4 8h16M4 16h16" />
     </svg>
   );
 }
 
-export function ShieldIcon(props: IconProps) {
+export function TrashIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>
-      <path d="M12 3l7 3v5c0 4.4-3 7.7-7 9-4-1.3-7-4.6-7-9V6l7-3Z" />
-      <path d="M9 12l2 2 4-4" />
+      <path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13" />
     </svg>
   );
 }
 
-export function PulseIcon(props: IconProps) {
+export function PhoneIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>
-      <path d="M3 12h4l2 5 4-12 2 7h6" />
+      <path d="M5 4h4l1.5 4.5L8 10a11 11 0 0 0 6 6l1.5-2.5L20 15v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z" />
+    </svg>
+  );
+}
+
+export function MailIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M3 6h18v12H3z" />
+      <path d="M3 6l9 7 9-7" />
+    </svg>
+  );
+}
+
+export function PinIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M12 21s-6-5.5-6-11a6 6 0 0 1 12 0c0 5.5-6 11-6 11Z" />
+      <circle cx="12" cy="10" r="2" />
     </svg>
   );
 }
@@ -90,83 +107,76 @@ export function DropletIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>
       <path d="M12 3s6 6.4 6 10.5A6 6 0 0 1 6 13.5C6 9.4 12 3 12 3Z" />
-      <path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.2" />
     </svg>
   );
 }
 
-export function CpuIcon(props: IconProps) {
+export function ElectrodeIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>
-      <rect x="7" y="7" width="10" height="10" rx="1.5" />
-      <path d="M10 10.5h4v4h-4z" />
-      <path d="M9 3v2M15 3v2M9 19v2M15 19v2M3 9h2M3 15h2M19 9h2M19 15h2" />
+      <path d="M8 3v14M16 3v14M5 7h14" />
+      <path d="M6 21h12" />
     </svg>
   );
 }
 
-export function ChatIcon(props: IconProps) {
+export function BoltIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>
-      <path d="M4 5h16v11H9l-4 3v-3H4z" />
-      <path d="M8 9.5h8M8 12.5h5" />
+      <path d="M13 3 5 13.5h6L10 21l9-11h-6l1-7Z" />
     </svg>
   );
 }
 
-export function TargetIcon(props: IconProps) {
+export function StirIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>
-      <circle cx="12" cy="12" r="8" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="12" cy="12" r="1" fill="currentColor" stroke="none" />
+      <path d="M4 12a8 4 0 0 0 16 0" />
+      <path d="M17.5 9.5 20 12l-3 1" />
+      <path d="M8 17h8" />
     </svg>
   );
 }
 
-/* Category icons */
-
-export function SilverIcon(props: IconProps) {
+export function GaugeIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>
-      <path d="M12 3c2.5 3.4 4 6 4 8.4A4 4 0 0 1 12 15a4 4 0 0 1-4-3.6C8 9 9.5 6.4 12 3Z" />
-      <path d="M6 19h12M8 21.5h8" />
+      <path d="M4 17a8 8 0 1 1 16 0" />
+      <path d="M12 17l4-5" />
     </svg>
   );
 }
 
-export function SolderIcon(props: IconProps) {
+export function BadgeIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>
-      <rect x="7" y="9" width="10" height="8" rx="1" />
-      <path d="M10 9V6M14 9V6M7 12H4M20 12h-3M10 17v3M14 17v3" />
+      <circle cx="12" cy="9" r="5.5" />
+      <path d="M9 14l-1.5 7L12 19l4.5 2L15 14" />
     </svg>
   );
 }
 
-export function TonerIcon(props: IconProps) {
+export function WrenchIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>
-      <rect x="3" y="8" width="18" height="8" rx="2" />
-      <circle cx="8" cy="12" r="1.4" />
-      <path d="M12 12h6" />
+      <path d="M14.5 5.5a4 4 0 0 0 4.9 5L20 11l-9 9a2.1 2.1 0 0 1-3-3l9-9 .5.6a4 4 0 0 0-3-3.1Z" />
     </svg>
   );
 }
 
-export function BoardIcon(props: IconProps) {
+export function CheckIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>
-      <rect x="3" y="4" width="18" height="13" rx="1.5" />
-      <circle cx="12" cy="10.5" r="3.2" />
-      <path d="M12 9v1.5l1 1M9 21h6" />
+      <path d="M5 12.5 10 17 19 7" />
     </svg>
   );
 }
 
-export const categoryIcons = {
-  silver: SilverIcon,
-  solder: SolderIcon,
-  toner: TonerIcon,
-  board: BoardIcon,
-} as const;
+export function ChipIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <rect x="6" y="6" width="12" height="12" rx="2" />
+      <path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3" />
+    </svg>
+  );
+}

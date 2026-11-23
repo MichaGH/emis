@@ -2,20 +2,25 @@
 
 import type { Product } from "@/lib/types";
 import { useCart } from "@/components/cart/CartProvider";
-import { PlusIcon } from "@/components/ui/Icons";
+import { CartIcon } from "@/components/ui/Icons";
 
 export function AddToCartButton({
   product,
+  size = "md",
   className = "",
 }: {
   product: Product;
+  size?: "md" | "lg";
   className?: string;
 }) {
   const { addItem } = useCart();
+  const pad = size === "lg" ? "px-8 py-4 text-base" : "px-5 py-3 text-[15px]";
 
   if (!product.available) {
     return (
-      <span className="inline-flex items-center justify-center rounded-md border border-border px-4 py-2 text-sm font-medium text-muted">
+      <span
+        className={`btn-gloss-white inline-flex items-center justify-center rounded-full font-bold ${pad} ${className}`}
+      >
         Na dopyt
       </span>
     );
@@ -25,9 +30,9 @@ export function AddToCartButton({
     <button
       type="button"
       onClick={() => addItem(product)}
-      className={`inline-flex items-center justify-center gap-1.5 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-hover ${className}`}
+      className={`btn-gloss inline-flex items-center justify-center gap-2 rounded-full font-bold ${pad} ${className}`}
     >
-      <PlusIcon className="h-4 w-4" />
+      <CartIcon className="h-[18px] w-[18px]" />
       Do košíka
     </button>
   );

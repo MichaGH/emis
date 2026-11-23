@@ -1,102 +1,51 @@
-"use client";
-
 import { CONTAINER, SITE } from "@/constants";
-import { Tag } from "@/components/ui/Tag";
+import { ContactForm } from "@/components/contact/ContactForm";
+import { PhoneIcon, MailIcon, PinIcon } from "@/components/ui/Icons";
 
 export function ContactSection() {
   return (
-    <section id="kontakt" className={`${CONTAINER} scroll-mt-20 py-20 lg:py-24`}>
-      <div className="grid gap-12 rounded-2xl border border-border/70 bg-surface p-8 shadow-soft lg:grid-cols-2 lg:gap-16 lg:p-12">
-        <div>
-          <Tag label="Kontakt" />
-          <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-            Máte otázku k zariadeniu?
+    <section id="kontakt" className="panel-blue scroll-mt-20 text-white">
+      <div className={`${CONTAINER} grid gap-12 py-20 lg:grid-cols-12 lg:gap-16 lg:py-28`}>
+        <div className="lg:col-span-5">
+          <p className="text-sm font-bold uppercase tracking-[0.12em] text-white/80">
+            Kontakt
+          </p>
+          <h2 className="mt-3 text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] sm:text-5xl">
+            Zavolajte priamo konštruktérovi
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-muted">
-            Napíšte nám a ozveme sa. Pri objednávke na mieru radi poradíme
-            s výberom.
+          <p className="mt-5 max-w-md text-lg leading-relaxed text-white/90">
+            Poradíme s výberom generátora, s výrobou aj so servisom. Zákazkový
+            vývoj radi preberieme osobne.
           </p>
 
-          <dl className="mt-8 space-y-4 text-sm">
-            <div className="flex justify-between border-b border-border pb-4">
-              <dt className="text-muted">E-mail</dt>
-              <dd className="font-medium">{SITE.email}</dd>
-            </div>
-            <div className="flex justify-between border-b border-border pb-4">
-              <dt className="text-muted">Telefón</dt>
-              <dd className="font-medium">{SITE.phone}</dd>
-            </div>
-            <div className="flex justify-between">
-              <dt className="text-muted">Lokalita</dt>
-              <dd className="font-medium">{SITE.location}</dd>
-            </div>
-          </dl>
+          <a
+            href={`tel:${SITE.phoneHref}`}
+            className="mt-10 flex items-center gap-4 text-3xl font-extrabold tracking-tight hover:text-white/85 sm:text-4xl"
+          >
+            <PhoneIcon className="h-8 w-8" />
+            {SITE.phone}
+          </a>
+          <a
+            href={`mailto:${SITE.email}`}
+            className="mt-5 flex items-center gap-4 text-lg font-semibold hover:text-white/85"
+          >
+            <MailIcon className="h-6 w-6" />
+            {SITE.email}
+          </a>
+          <p className="mt-5 flex items-start gap-4 text-lg font-medium text-white/90">
+            <PinIcon className="mt-0.5 h-6 w-6 flex-none" />
+            <span>
+              {SITE.owner}
+              <br />
+              {SITE.street}, {SITE.city}
+            </span>
+          </p>
         </div>
 
-        {/* Statický formulár — vizuálny placeholder, bez odosielania */}
-        <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <Field label="Meno" name="name" placeholder="Vaše meno" />
-            <Field
-              label="E-mail"
-              name="email"
-              type="email"
-              placeholder="vas@email.sk"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="message"
-              className="mb-1.5 block text-sm font-medium"
-            >
-              Správa
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={5}
-              placeholder="S čím vám môžeme pomôcť?"
-              className="w-full resize-none rounded-md border border-border bg-background px-3.5 py-2.5 text-sm outline-none transition-colors placeholder:text-muted/70 focus:border-primary"
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-hover sm:w-auto"
-          >
-            Odoslať správu
-          </button>
-          <p className="text-xs text-muted">
-            Formulár je zatiaľ ukážkový — napojenie na odosielanie sa doplní.
-          </p>
-        </form>
+        <div className="lg:col-span-7">
+          <ContactForm />
+        </div>
       </div>
     </section>
-  );
-}
-
-function Field({
-  label,
-  name,
-  type = "text",
-  placeholder,
-}: {
-  label: string;
-  name: string;
-  type?: string;
-  placeholder?: string;
-}) {
-  return (
-    <div>
-      <label htmlFor={name} className="mb-1.5 block text-sm font-medium">
-        {label}
-      </label>
-      <input
-        id={name}
-        name={name}
-        type={type}
-        placeholder={placeholder}
-        className="w-full rounded-md border border-border bg-background px-3.5 py-2.5 text-sm outline-none transition-colors placeholder:text-muted/70 focus:border-primary"
-      />
-    </div>
   );
 }

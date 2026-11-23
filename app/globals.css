@@ -1,39 +1,43 @@
 @import "tailwindcss";
 
+/*
+  EMIS — plný, výrazný firemný vzhľad.
+  Modrá je hlavná farba značky, plochy sú vyplnené (nie oddelené čiarami),
+  texty sú tmavé a dobre čitateľné. Všetky farby sa upravujú iba tu.
+*/
 :root {
-  /* Base */
+  /* Základ */
   --background: #ffffff;
-  --foreground: #0d1524;
+  --foreground: #0d1a2e;
 
-  /* Brand — one vivid, premium blue used consistently across the whole
-     site. Livelier and more saturated than the old muted navy, but still
-     firmly blue (not sky/cyan). */
-  --primary: #1d55d4;
-  --primary-hover: #1745b0;
+  /* Hlavná modrá — sýta kráľovská */
+  --primary: #1747d0;
+  --primary-hover: #113aac;
   --primary-foreground: #ffffff;
-  --primary-soft: #e9f0fd;
-  /* Deep end of the same blue — used only for premium gradients so CTAs
-     and the brand mark feel full instead of flat. */
-  --primary-strong: #143a9c;
+  /* Tmavšia modrá pre plné plochy vedľa hlavnej */
+  --primary-deep: #0f3394;
 
-  /* Lighter, brighter shade of the SAME blue — only for dark backgrounds
-     where the darker primary would be unreadable. Kept firmly blue (not
-     sky/cyan) so the whole site reads as one colour. */
-  --accent: #5b8ef5;
+  /* Svetlejšia modrá na tmavých plochách */
+  --accent: #8db0ff;
 
-  /* Surfaces */
-  --surface: #f4f7fc;
-  --surface-strong: #e7eef8;
-  --border: #dbe3ef;
-  --muted: #55617a;
+  /* Striebro — kovové časti vo výkresoch */
+  --silver: #a9b4c2;
+  --silver-light: #dbe2ea;
 
-  /* Dark sections */
-  --dark: #0c1522;
-  --dark-2: #101c2d;
-  --dark-surface: #172940;
-  --dark-border: #26384f;
-  --dark-foreground: #eef2f7;
-  --dark-muted: #97a6ba;
+  /* Plochy — neutrálne, bez modrého nádychu */
+  --surface: #f2f3f5;
+  --surface-strong: #e4e7eb;
+  --border: #d9dde3;
+  /* Tlmený text — stále tmavý, nie bledosivý */
+  --muted: #3c4656;
+
+  /* Tmavé sekcie — navy */
+  --dark: #0a1838;
+  --darker: #060f26;
+  --dark-surface: #13264d;
+  --dark-border: #223a6a;
+  --dark-foreground: #ffffff;
+  --dark-muted: #c6d1e6;
 }
 
 @theme inline {
@@ -43,9 +47,11 @@
   --color-primary: var(--primary);
   --color-primary-hover: var(--primary-hover);
   --color-primary-foreground: var(--primary-foreground);
-  --color-primary-soft: var(--primary-soft);
-  --color-primary-strong: var(--primary-strong);
+  --color-primary-deep: var(--primary-deep);
   --color-accent: var(--accent);
+
+  --color-silver: var(--silver);
+  --color-silver-light: var(--silver-light);
 
   --color-surface: var(--surface);
   --color-surface-strong: var(--surface-strong);
@@ -53,14 +59,13 @@
   --color-muted: var(--muted);
 
   --color-dark: var(--dark);
-  --color-dark-2: var(--dark-2);
+  --color-darker: var(--darker);
   --color-dark-surface: var(--dark-surface);
   --color-dark-border: var(--dark-border);
   --color-dark-foreground: var(--dark-foreground);
   --color-dark-muted: var(--dark-muted);
 
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-archivo);
 }
 
 html {
@@ -75,73 +80,88 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Circuit-board trace texture — subtle, recoloured via CSS mask.
-   Kept deliberately faint; used only as light background detail. */
-.circuit-texture {
-  -webkit-mask-image: url("/images/circuit-board-pattern.svg");
-  mask-image: url("/images/circuit-board-pattern.svg");
-  -webkit-mask-repeat: repeat;
-  mask-repeat: repeat;
-  -webkit-mask-size: 720px;
-  mask-size: 720px;
+/* ──────────────────────────────────────────────────────────────
+   Lesklé povrchy — čisté prechody a jemné horné odlesky.
+   Žiadne rozmazané svetlá, len tvar a materiál.
+   ────────────────────────────────────────────────────────────── */
+
+/* Modré lesklé tlačidlo */
+.btn-gloss {
+  background: linear-gradient(180deg, #2f63f0 0%, var(--primary) 55%, #123cb4 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15),
+    0 8px 20px -8px rgba(23, 71, 208, 0.65);
+  color: #fff;
+  transition: filter 0.15s ease, transform 0.15s ease;
 }
-.circuit-primary {
-  background-color: var(--primary);
-}
-.circuit-light {
-  background-color: var(--accent);
+.btn-gloss:hover {
+  filter: brightness(1.08);
 }
 
-/* Soft elevation for cards — gives the light layout depth instead of
-   relying only on flat 1px borders. */
-.shadow-soft {
+/* Biele lesklé tlačidlo */
+.btn-gloss-white {
+  background: linear-gradient(180deg, #ffffff 0%, #eef1f6 100%);
   box-shadow:
-    0 1px 2px rgba(16, 25, 42, 0.04),
-    0 12px 32px -14px rgba(16, 25, 42, 0.16);
+    inset 0 1px 0 #fff,
+    0 1px 2px rgba(6, 15, 38, 0.12),
+    0 8px 20px -10px rgba(6, 15, 38, 0.35);
+  color: var(--foreground);
+  transition: filter 0.15s ease;
 }
-.shadow-soft-hover {
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
-}
-.shadow-soft-hover:hover {
-  box-shadow:
-    0 2px 6px rgba(16, 25, 42, 0.06),
-    0 22px 48px -16px rgba(16, 25, 42, 0.22);
-  transform: translateY(-3px);
+.btn-gloss-white:hover {
+  filter: brightness(0.97);
 }
 
-/* Premium brand gradient — full, living blue for CTAs, the brand mark and
-   hero highlights. Deliberately a tight two-stop of the SAME blue, so it
-   reads as depth, not an AI rainbow glow. */
-.bg-brand-gradient {
-  background-image: linear-gradient(
-    135deg,
-    var(--primary) 0%,
-    var(--primary-strong) 100%
-  );
+/* Sklo na tmavom pozadí */
+.glass-dark {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
-/* Coloured shadow that lets primary buttons glow faintly in their own
-   blue on hover — adds life without the banned soft-glow blobs. */
-.shadow-brand {
-  box-shadow: 0 10px 24px -10px color-mix(in srgb, var(--primary) 55%, transparent);
+
+/* Biela lesklá karta */
+.card-gloss {
+  background: linear-gradient(180deg, #ffffff 0%, #f7f8fb 100%);
+  border: 1px solid rgba(13, 26, 46, 0.07);
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 1px 2px rgba(13, 26, 46, 0.05),
+    0 24px 48px -28px rgba(13, 26, 46, 0.35);
 }
-.text-brand-gradient {
-  background-image: linear-gradient(
-    120deg,
-    var(--primary) 0%,
-    var(--accent) 100%
-  );
+
+/* Tmavý lesklý panel / sekcia */
+.panel-navy {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 40%),
+    linear-gradient(160deg, #10255a 0%, var(--dark) 55%, var(--darker) 100%);
+}
+
+/* Modrý lesklý panel / sekcia */
+.panel-blue {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0) 45%),
+    linear-gradient(160deg, #2a5ff0 0%, var(--primary) 50%, #0f3394 100%);
+}
+
+/* Svetlá sekcia s jemným leskom */
+.section-sheen {
+  background: linear-gradient(180deg, #f6f7f9 0%, #eceff3 100%);
+}
+
+/* Pódium pre produkt — svetlá plocha s podlahou */
+.stage {
+  background:
+    radial-gradient(60% 18% at 50% 88%, rgba(13, 26, 46, 0.16), transparent 70%),
+    linear-gradient(180deg, #eef1f5 0%, #ffffff 62%, #e9edf2 62.2%, #f4f6f9 100%);
+}
+
+/* Modrý text s kovovým prechodom — na veľké čísla */
+.text-metal-blue {
+  background: linear-gradient(180deg, #4b7bff 0%, var(--primary) 60%, #0f3394 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-}
-
-/* Very soft brand-tinted section background */
-.bg-soft-gradient {
-  background:
-    radial-gradient(
-      120% 80% at 100% 0%,
-      color-mix(in srgb, var(--primary) 9%, transparent),
-      transparent 60%
-    ),
-    var(--surface);
 }

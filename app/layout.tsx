@@ -1,25 +1,21 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Archivo } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/components/cart/CartProvider";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
-  subsets: ["latin"],
+const archivo = Archivo({
+  variable: "--font-archivo",
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
-  title: "EMIS — Špecializované elektronické zariadenia",
+  title: "EMIS — generátory koloidného striebra | Nižná",
   description:
-    "EMIS navrhuje a vyrába špecializované elektronické zariadenia — generátory koloidného striebra, cínovacie zariadenia, toner testery a informačné tabule.",
+    "Generátory koloidného striebra GKS s elektronickou reguláciou prúdu a elektródami z 99,99 % striebra. Vývoj a výroba elektroniky v Nižnej od roku 1990.",
 };
 
 export default function RootLayout({
@@ -28,10 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="sk"
-      className={`${inter.variable} ${spaceGrotesk.variable} h-full`}
-    >
+    <html lang="sk" className={`${archivo.variable} h-full`}>
       <body className="flex min-h-full flex-col">
         <CartProvider>
           <Navbar />

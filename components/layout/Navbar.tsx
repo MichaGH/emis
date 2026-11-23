@@ -1,78 +1,67 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { mainNav } from "@/data/navigation";
 import { SITE, CONTAINER } from "@/constants";
 import { CartButton } from "@/components/cart/CartButton";
-import { MenuIcon, CloseIcon } from "@/components/ui/Icons";
+import { MenuIcon, CloseIcon, PhoneIcon } from "@/components/ui/Icons";
+import { Logo } from "@/components/layout/Logo";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const isHome = pathname === "/";
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const transparent = isHome && !scrolled && !open;
+  const isActive = (href: string) =>
+    pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-colors duration-300 ${
-        transparent
-          ? "bg-transparent"
-          : "bg-background/90 shadow-[0_1px_0_var(--border)] backdrop-blur"
-      }`}
-    >
-      <div className={`${CONTAINER} flex h-16 items-center justify-between`}>
-        <Link href="/" className="flex items-center gap-2">
-          <span className="bg-brand-gradient flex h-8 w-8 items-center justify-center rounded-md text-sm font-bold text-primary-foreground shadow-brand">
-            E
-          </span>
-          <span
-            className={`font-display text-lg font-bold tracking-tight ${
-              transparent ? "text-white" : "text-foreground"
-            }`}
-          >
-            {SITE.name}
-          </span>
-        </Link>
+    <header className="sticky top-0 z-40 border-b border-black/5 bg-white/85 backdrop-blur-xl">
+      <div className={`${CONTAINER} flex h-[72px] items-center justify-between gap-6`}>
+        <Logo />
 
-        {/* Desktop nav */}
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-1 lg:flex">
           {mainNav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={`text-sm font-medium transition-colors ${
-                transparent
-                  ? "text-white/80 hover:text-white"
-                  : "text-muted hover:text-foreground"
+              className={`relative px-4 py-2 text-[15px] font-semibold transition-colors ${
+                isActive(item.href)
+                  ? "text-primary"
+                  : "text-foreground hover:text-primary"
               }`}
             >
               {item.label}
+              {isActive(item.href) && (
+                <span className="absolute inset-x-4 -bottom-[17px] h-[3px] rounded-full bg-primary" />
+              )}
             </Link>
           ))}
         </nav>
 
         <div className="flex items-center gap-2">
-          <CartButton transparent={transparent} />
+          <a
+            href={`tel:${SITE.phoneHref}`}
+            className="hidden items-center gap-2 px-3 text-[15px] font-bold text-foreground hover:text-primary xl:inline-flex"
+          >
+            <PhoneIcon className="h-[18px] w-[18px] text-primary" />
+            {SITE.phone}
+          </a>
+          <a
+            href={`tel:${SITE.phoneHref}`}
+            aria-label={`Zavolať ${SITE.phone}`}
+            className="btn-gloss-white inline-flex h-11 w-11 items-center justify-center rounded-full md:hidden"
+          >
+            <PhoneIcon className="h-5 w-5" />
+          </a>
+          <CartButton />
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            aria-label="Menu"
-            className={`inline-flex h-10 w-10 items-center justify-center rounded-md border transition-colors md:hidden ${
-              transparent
-                ? "border-white/25 text-white hover:bg-white/10"
-                : "border-border text-foreground hover:bg-surface"
-            }`}
+            aria-label={open ? "Zavrieť menu" : "Otvoriť menu"}
+            aria-expanded={open}
+            className="btn-gloss-white inline-flex h-11 w-11 items-center justify-center rounded-full lg:hidden"
           >
             {open ? (
               <CloseIcon className="h-5 w-5" />
@@ -83,21 +72,23 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile nav */}
       {open && (
-        <nav className="border-t border-border bg-background md:hidden">
-          <div className={`${CONTAINER} flex flex-col py-2`}>
+        <nav className="border-t border-black/5 bg-white pb-4 lg:hidden">
+          <ul className={`${CONTAINER} pt-2`}>
             {mainNav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="py-3 text-sm font-medium text-foreground"
-              >
-                {item.label}
-              </Link>
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className={`block py-3.5 text-xl font-bold ${
+                    isActive(item.href) ? "text-primary" : "text-foreground"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </nav>
       )}
     </header>

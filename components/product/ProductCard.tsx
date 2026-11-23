@@ -1,39 +1,44 @@
+import Link from "next/link";
 import type { Product } from "@/lib/types";
 import { formatPrice } from "@/lib/format";
 import { AddToCartButton } from "@/components/cart/AddToCartButton";
+import { ProductMedia } from "@/components/product/ProductMedia";
 
 export function ProductCard({ product }: { product: Product }) {
-  return (
-    <article className="shadow-soft shadow-soft-hover group flex flex-col overflow-hidden rounded-2xl border border-border/70 bg-background">
-      {/* Visual placeholder — PCB style */}
-      <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden border-b border-dark-border bg-dark">
-        <div className="circuit-texture circuit-light absolute inset-0 opacity-[0.15]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent" />
-        <span className="relative rounded-md border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold tracking-wide text-accent backdrop-blur">
-          {product.code}
-        </span>
-        {!product.available && (
-          <span className="absolute left-3 top-3 rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-medium text-dark-muted backdrop-blur">
-            Na dopyt
-          </span>
-        )}
-      </div>
+  const href = `/produkty/${product.slug}`;
 
-      <div className="flex flex-1 flex-col p-5">
-        <p className="text-xs font-medium uppercase tracking-wider text-muted">
+  return (
+    <article className="card-gloss group flex flex-col overflow-hidden rounded-[22px] transition-transform duration-300 hover:-translate-y-1">
+      <Link href={href} className="relative block">
+        <ProductMedia product={product} className="aspect-[5/4]" />
+        <span className="absolute left-5 top-5 text-sm font-bold uppercase tracking-[0.08em] text-primary">
           {product.category}
-        </p>
-        <h3 className="mt-2 font-display text-lg font-semibold leading-snug">
-          {product.name}
-        </h3>
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
+        </span>
+      </Link>
+
+      <div className="flex flex-1 flex-col px-7 pb-7 pt-6">
+        <Link href={href} className="block">
+          <h3 className="text-[1.75rem] font-extrabold leading-none tracking-tight">
+            {product.code}
+          </h3>
+          <p className="mt-2 text-[17px] font-semibold text-muted">{product.name}</p>
+        </Link>
+
+        <p className="mt-4 flex-1 leading-relaxed text-foreground/85">
           {product.shortDescription}
         </p>
 
-        <div className="mt-5 flex items-center justify-between">
-          <span className="font-display text-xl font-semibold">
-            {formatPrice(product.price)}
-          </span>
+        <p className="mt-5 text-[15px] font-semibold text-foreground">
+          {product.keySpecs.map((s) => s.value).join("  ·  ")}
+        </p>
+
+        <div className="mt-7 flex items-center justify-between gap-4">
+          <div>
+            <p className="text-sm font-medium text-muted">s DPH</p>
+            <p className="text-[1.75rem] font-extrabold leading-none tracking-tight">
+              {formatPrice(product.price)}
+            </p>
+          </div>
           <AddToCartButton product={product} />
         </div>
       </div>

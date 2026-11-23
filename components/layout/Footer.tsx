@@ -1,60 +1,80 @@
 import Link from "next/link";
 import { footerNav } from "@/data/navigation";
 import { SITE, CONTAINER } from "@/constants";
+import { Logo } from "@/components/layout/Logo";
+import { PhoneIcon, MailIcon, PinIcon } from "@/components/ui/Icons";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-surface">
-      <div className={`${CONTAINER} py-14`}>
-        <div className="flex flex-col gap-10 md:flex-row md:justify-between">
-          <div className="max-w-sm">
-            <div className="flex items-center gap-2">
-              <span className="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-sm font-bold text-primary-foreground">
-                E
-              </span>
-              <span className="font-display text-lg font-bold tracking-tight">
-                {SITE.name}
-              </span>
-            </div>
-            <p className="mt-4 text-sm leading-relaxed text-muted">
-              Návrh a výroba špecializovaných elektronických zariadení —
-              generátory koloidného striebra a technika pre špecifické použitie.
-            </p>
-          </div>
-
-          <div className="flex gap-16">
-            <div>
-              <h3 className="text-sm font-semibold">Stránky</h3>
-              <ul className="mt-4 space-y-3">
-                {footerNav.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="text-sm text-muted transition-colors hover:text-foreground"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-sm font-semibold">Kontakt</h3>
-              <ul className="mt-4 space-y-3 text-sm text-muted">
-                <li>{SITE.email}</li>
-                <li>{SITE.phone}</li>
-                <li>{SITE.location}</li>
-              </ul>
-            </div>
-          </div>
+    <footer className="bg-darker text-white">
+      <div className={`${CONTAINER} grid gap-12 py-16 md:grid-cols-12`}>
+        <div className="md:col-span-4">
+          <Logo dark />
+          <p className="mt-5 max-w-sm leading-relaxed text-dark-muted">
+            Generátory koloidného striebra a elektronika na zákazku. Navrhnuté
+            a vyrobené v Nižnej na Orave.
+          </p>
         </div>
 
-        <div className="mt-12 flex flex-col gap-2 border-t border-border pt-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+        {footerNav.map((group) => (
+          <div key={group.title} className="md:col-span-2">
+            <h3 className="font-bold">{group.title}</h3>
+            <ul className="mt-5 space-y-3">
+              {group.items.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="text-dark-muted transition-colors hover:text-white"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+
+        <div className="md:col-span-4">
+          <div className="glass-dark rounded-2xl p-6">
+            <h3 className="font-bold">Kontakt</h3>
+            <ul className="mt-5 space-y-4">
+              <li>
+                <a
+                  href={`tel:${SITE.phoneHref}`}
+                  className="flex items-center gap-3 text-xl font-bold hover:text-accent"
+                >
+                  <PhoneIcon className="h-5 w-5 text-accent" />
+                  {SITE.phone}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${SITE.email}`}
+                  className="flex items-center gap-3 hover:text-accent"
+                >
+                  <MailIcon className="h-5 w-5 text-accent" />
+                  {SITE.email}
+                </a>
+              </li>
+              <li className="flex items-start gap-3 text-dark-muted">
+                <PinIcon className="mt-0.5 h-5 w-5 flex-none text-accent" />
+                <span>
+                  {SITE.owner}, {SITE.street}, {SITE.city}
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-black/20">
+        <div
+          className={`${CONTAINER} flex flex-col gap-2 py-5 text-sm text-dark-muted sm:flex-row sm:justify-between`}
+        >
           <p>
-            © {new Date().getFullYear()} {SITE.name}. Všetky práva vyhradené.
+            © {new Date().getFullYear()} {SITE.name} · {SITE.owner}
           </p>
-          <p>Kontaktné údaje budú doplnené po dodaní podkladov.</p>
+          <p>Elektronika z Oravy od roku {SITE.founded}</p>
         </div>
       </div>
     </footer>

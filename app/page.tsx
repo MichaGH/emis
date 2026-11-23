@@ -1,24 +1,20 @@
-import { HeroSlideshow } from "@/components/homepage/HeroSlideshow";
+import { HeroSection } from "@/components/homepage/HeroSection";
+import { ProductsSection } from "@/components/homepage/ProductsSection";
+import { SilverSection } from "@/components/homepage/SilverSection";
+import { ReasonsSection } from "@/components/homepage/ReasonsSection";
+import { HistorySection } from "@/components/homepage/HistorySection";
 import { ElectronicsSection } from "@/components/homepage/ElectronicsSection";
-import { ValuesSection } from "@/components/homepage/ValuesSection";
-import { ColloidalSilverSection } from "@/components/homepage/ColloidalSilverSection";
-import { NanoparticlesSection } from "@/components/homepage/NanoparticlesSection";
-import { FeaturedProductsSection } from "@/components/homepage/FeaturedProductsSection";
-import { TrustSection } from "@/components/homepage/TrustSection";
-import { SoftwareSection } from "@/components/homepage/SoftwareSection";
 import { ContactSection } from "@/components/homepage/ContactSection";
 
 export default function Home() {
   return (
     <>
-      <HeroSlideshow />
+      <HeroSection />
+      <ProductsSection />
+      <SilverSection />
+      <ReasonsSection />
+      <HistorySection />
       <ElectronicsSection />
-      <ValuesSection />
-      <ColloidalSilverSection />
-      <NanoparticlesSection />
-      <FeaturedProductsSection />
-      <TrustSection />
-      <SoftwareSection />
       <ContactSection />
     </>
   );

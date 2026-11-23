@@ -1,0 +1,18 @@
+# Zdroje fotografií
+
+Všetky fotografie sú z Unsplash pod licenciou Unsplash License
+(https://unsplash.com/license) — bezplatné použitie aj na komerčné účely,
+uvedenie autora nie je povinné.
+
+| Súbor | Zdroj |
+| --- | --- |
+| hero-pcb.jpg | https://images.unsplash.com/photo-1592659762303-90081d34b277 |
+| pcb-closeup.jpg | https://images.unsplash.com/photo-1518770660439-4636190af475 |
+| lab-beakers-dark.jpg | https://images.unsplash.com/photo-1761095596584-34731de3e568 |
+| lab-beaker-water.jpg | https://images.unsplash.com/photo-1617155093730-a8bf47be792d |
+| workshop-soldering.jpg | https://images.unsplash.com/photo-1560846389-8c7e1d88eca8 |
+| chip-tweezers.jpg | https://images.unsplash.com/photo-1640955785023-1854685dae05 |
+
+`nanoparticles1.webp` — ilustračná snímka z elektrónového mikroskopu (pôvodne v repozitári).
+
+Produktové fotografie generátorov dodá klient do `products/`.
