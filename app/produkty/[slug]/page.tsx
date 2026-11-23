@@ -145,10 +145,6 @@ export default async function ProductPage(props: PageProps<"/produkty/[slug]">) 
               ))}
             </dl>
           </div>
-          <p className="mt-4 rounded-xl bg-surface p-5 leading-relaxed">
-            Koloidné striebro nie je liek. Informácie na tejto stránke popisujú
-            prístroj a postup výroby, nie zdravotné účinky.
-          </p>
         </div>
       </section>
 

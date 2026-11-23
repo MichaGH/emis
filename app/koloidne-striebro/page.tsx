@@ -138,12 +138,6 @@ export default function SilverPage() {
             ))}
           </div>
 
-          <p className="mt-6 rounded-xl bg-dark p-6 leading-relaxed text-white">
-            Koloidné striebro nie je registrovaný liek. Pred vnútorným užívaním
-            sa poraďte s lekárom. Táto stránka popisuje výrobu, nie zdravotné
-            účinky.
-          </p>
-
           <div className="mt-8 flex flex-wrap gap-3">
             <ButtonLink href="/produkty">Generátory GKS</ButtonLink>
             <ButtonLink href="/kontakt" variant="white">

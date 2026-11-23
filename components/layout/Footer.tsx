@@ -74,7 +74,12 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {SITE.name} · {SITE.owner}
           </p>
-          <p>Elektronika z Oravy od roku {SITE.founded}</p>
+          <p className="flex flex-wrap gap-x-5 gap-y-1">
+            <Link href="/obchodne-podmienky" className="hover:text-white">
+              Obchodné podmienky
+            </Link>
+            <span>Elektronika z Oravy od roku {SITE.founded}</span>
+          </p>
         </div>
       </div>
     </footer>
