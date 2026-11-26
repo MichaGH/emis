@@ -5,7 +5,7 @@ import { ArrowRightIcon } from "@/components/ui/Icons";
 
 export function SilverSection() {
   return (
-    <section id="koloidne-striebro" className="scroll-mt-20 bg-white">
+    <section id="koloidne-striebro" className="scroll-mt-20 bg-surface">
       <div className={`${CONTAINER} py-20 lg:py-24`}>
         <div className="text-center">
           <h2 className="text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] sm:text-5xl">
@@ -21,7 +21,7 @@ export function SilverSection() {
           {processOverview.map((step) => (
             <li
               key={step.number}
-              className="flex flex-col items-center rounded-xl bg-surface px-5 py-8 text-center lg:py-10"
+              className="flex flex-col items-center rounded-xl bg-white px-5 py-8 text-center lg:py-10"
             >
               <span className="text-[3.5rem] font-extrabold leading-none tracking-[-0.05em] text-primary">
                 {step.number}

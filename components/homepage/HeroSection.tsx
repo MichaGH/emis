@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { CONTAINER } from "@/constants";
-import { heroContent, heroVideo } from "@/data/hero";
+import { heroContent, heroOverlay, heroVideo } from "@/data/hero";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { ProcessOutline } from "@/components/illustrations/ProcessOutline";
 import { BottleOutline } from "@/components/illustrations/BottleOutline";
@@ -42,7 +42,7 @@ export function HeroSection({
   imagePosition = "center",
   imageClassName = DEFAULT_IMAGE_CLASS,
   background,
-  overlay = 1,
+  overlay = heroOverlay,
 }: {
   /** fotka v pozadí (lokálna cesta alebo URL) — bez nej beží video */
   image?: string;
@@ -52,7 +52,7 @@ export function HeroSection({
   imageClassName?: string;
   /** vlastné pozadie namiesto fotky (napr. video) — musí mať -z-20 */
   background?: React.ReactNode;
-  /** sila stmavenia: 0 = čisté pozadie, 1 = predvolené, do 1,5 = tmavšie (testovanie) */
+  /** sila stmavenia: 0 = čisté pozadie, 1 = plné prekrytie, do 1,5 = tmavšie */
   overlay?: number;
 } = {}) {
   return (

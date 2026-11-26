@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { heroVideos, posterSrc } from "@/data/heroVideos";
 import { HeroSection } from "@/components/homepage/HeroSection";
+import { heroOverlay } from "@/data/hero";
 import { ProductsSection } from "@/components/homepage/ProductsSection";
 import { ArrowLeftIcon, ArrowRightIcon } from "@/components/ui/Icons";
 
@@ -11,7 +12,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from "@/components/ui/Icons";
 
 export function HeroVideoTester() {
   const [index, setIndex] = useState(0);
-  const [overlay, setOverlay] = useState(1);
+  const [overlay, setOverlay] = useState(heroOverlay);
   const [mono, setMono] = useState(false);
   const [open, setOpen] = useState(true);
 

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { heroImages, heroImageSrc, heroImageFilter } from "@/data/heroImages";
 import { HeroSection } from "@/components/homepage/HeroSection";
+import { heroOverlay } from "@/data/hero";
 import { ClientsSection } from "@/components/homepage/ClientsSection";
 import { ArrowLeftIcon, ArrowRightIcon } from "@/components/ui/Icons";
 
@@ -17,7 +18,7 @@ const positions = [
 
 export function HeroImageTester() {
   const [index, setIndex] = useState(0);
-  const [overlay, setOverlay] = useState(1);
+  const [overlay, setOverlay] = useState(heroOverlay);
   const [position, setPosition] = useState("center");
   const [open, setOpen] = useState(true);
 
