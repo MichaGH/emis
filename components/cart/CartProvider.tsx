@@ -6,8 +6,16 @@ import {
   useContext,
   useMemo,
   useState,
+  useSyncExternalStore,
 } from "react";
 import type { Product } from "@/lib/types";
+import { products } from "@/data/products";
+import {
+  getServerSnapshot,
+  getSnapshot,
+  subscribe,
+  write,
+} from "@/lib/cartStore";
 
 export type CartLine = {
   product: Product;
@@ -30,41 +38,45 @@ type CartContextValue = {
 const CartContext = createContext<CartContextValue | null>(null);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [lines, setLines] = useState<CartLine[]>([]);
+  // Košík je uložený v prehliadači (lib/cartStore) — prežije obnovenie stránky.
+  const stored = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const [isOpen, setIsOpen] = useState(false);
 
+  const lines = useMemo<CartLine[]>(
+    () =>
+      stored
+        .map((l) => {
+          const product = products.find((p) => p.id === l.id);
+          return product ? { product, quantity: l.quantity } : null;
+        })
+        .filter((l): l is CartLine => l !== null),
+    [stored],
+  );
+
   const addItem = useCallback((product: Product) => {
-    setLines((prev) => {
-      const existing = prev.find((l) => l.product.id === product.id);
-      if (existing) {
-        return prev.map((l) =>
-          l.product.id === product.id
-            ? { ...l, quantity: l.quantity + 1 }
-            : l,
-        );
-      }
-      return [...prev, { product, quantity: 1 }];
-    });
+    const prev = getSnapshot();
+    const existing = prev.find((l) => l.id === product.id);
+    write(
+      existing
+        ? prev.map((l) => (l.id === product.id ? { ...l, quantity: Math.min(l.quantity + 1, 99) } : l))
+        : [...prev, { id: product.id, quantity: 1 }],
+    );
     setIsOpen(true);
   }, []);
 
   const removeItem = useCallback((id: string) => {
-    setLines((prev) => prev.filter((l) => l.product.id !== id));
+    write(getSnapshot().filter((l) => l.id !== id));
   }, []);
 
   const setQuantity = useCallback((id: string, quantity: number) => {
-    setLines((prev) =>
-      prev
-        .map((l) =>
-          l.product.id === id
-            ? { ...l, quantity: Math.max(1, quantity) }
-            : l,
-        )
-        .filter((l) => l.quantity > 0),
+    write(
+      getSnapshot().map((l) =>
+        l.id === id ? { ...l, quantity: Math.min(Math.max(1, quantity), 99) } : l,
+      ),
     );
   }, []);
 
-  const clear = useCallback(() => setLines([]), []);
+  const clear = useCallback(() => write([]), []);
   const openCart = useCallback(() => setIsOpen(true), []);
   const closeCart = useCallback(() => setIsOpen(false), []);
 
