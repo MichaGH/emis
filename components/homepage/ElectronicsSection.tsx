@@ -9,7 +9,7 @@ export function ElectronicsSection() {
   return (
     <section className="bg-white py-16 lg:py-20">
       <div className={CONTAINER}>
-        <div className="relative isolate overflow-hidden rounded-[22px] text-white">
+        <div className="relative isolate overflow-hidden rounded-xl text-white">
           <Image
             src="/images/chip-tweezers.jpg"
             alt=""

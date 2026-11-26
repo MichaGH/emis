@@ -30,7 +30,7 @@ export default function AboutPage() {
 
           <ol className="mt-14 grid gap-5 lg:grid-cols-3">
             {timeline.map((t) => (
-              <li key={t.year} className="card rounded-[22px] p-8">
+              <li key={t.year} className="card rounded-xl p-8">
                 <span className="text-primary text-4xl font-extrabold tracking-[-0.03em]">
                   {t.year}
                 </span>
@@ -73,7 +73,7 @@ export default function AboutPage() {
               </ButtonLink>
             </div>
           </div>
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[28px]">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-xl">
             <Image
               src="/images/pcb-closeup.jpg"
               alt="Detail osadenej dosky plošných spojov"

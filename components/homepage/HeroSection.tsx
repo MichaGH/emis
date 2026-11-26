@@ -71,17 +71,13 @@ export function HeroSection({
         ) : (
           <HeroVideoBackground />
         ))}
-      {/* Jemný tmavomodrý nádych celej plochy */}
-      <div className="absolute inset-0 -z-10 bg-[#0a1838]/25" />
+      {/* Rovnomerné tmavé petrolejové prekrytie (ladí s vodou na videu),
+          tmavšie hore pod navigáciou a dole pod štatistikami. Žiadna škvrna
+          okolo textu. */}
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(3,22,28,0.72)_0%,rgba(3,22,28,0.5)_22%,rgba(3,22,28,0.5)_70%,rgba(3,22,28,0.78)_100%)]" />
       {dim > 0 && (
-        <div className="absolute inset-0 -z-10 bg-darker" style={{ opacity: dim }} />
+        <div className="absolute inset-0 -z-10 bg-[#03161c]" style={{ opacity: dim }} />
       )}
-      {/* Jemné rozmazanie iba v strede (za textom a tlačidlami), plynulo
-          prechádza do ostrého pozadia po okrajoch. */}
-      <div className="absolute inset-0 -z-10 backdrop-blur-[5px] [mask-image:radial-gradient(ellipse_48%_38%_at_50%_47%,#000_35%,transparent_100%)]" />
-      {/* Stmavený je len pás hore (navigácia) a ovál za textom;
-          čitateľnosť dopĺňa tieň písma. */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_46%_34%_at_50%_46%,rgba(6,15,38,0.66)_0%,rgba(6,15,38,0.48)_50%,transparent_100%),linear-gradient(180deg,rgba(6,15,38,0.5)_0%,transparent_20%,transparent_75%,rgba(6,15,38,0.3)_100%)]" />
 
       {/* Nenápadné obrysy v pozadí — vľavo fľaštička, vpravo generátor */}
       <BottleOutline className="pointer-events-none absolute -left-16 top-20 -z-10 hidden h-[90%] text-white/[0.1] lg:block" />
@@ -90,10 +86,10 @@ export function HeroSection({
       <div className={`${CONTAINER} flex flex-col items-center pb-12 pt-[calc(var(--nav-h)+5.5rem)] text-center sm:pt-[calc(var(--nav-h)+7rem)] lg:min-h-svh lg:pb-14 lg:pt-[calc(var(--nav-h)+3rem)]`}>
         {/* Na desktope je hero na celú výšku okna, text je v strede, štatistiky dole */}
         <div className="flex flex-1 flex-col items-center justify-center">
-          <h1 className="max-w-4xl text-[3rem] font-extrabold leading-[1.02] tracking-[-0.035em] [text-shadow:0_2px_30px_rgba(6,15,38,0.7),0_1px_3px_rgba(6,15,38,0.5)] sm:text-7xl lg:text-[5.75rem]">
+          <h1 className="max-w-4xl text-[3rem] font-extrabold leading-[1.02] tracking-[-0.035em] [text-shadow:0_1px_2px_rgba(3,22,28,0.6)] sm:text-7xl lg:text-[5.75rem]">
             {heroContent.title}
           </h1>
-          <p className="mt-7 max-w-2xl text-lg font-medium leading-relaxed text-white [text-shadow:0_1px_14px_rgba(6,15,38,0.85),0_1px_2px_rgba(6,15,38,0.6)] sm:text-xl">
+          <p className="mt-7 max-w-2xl text-lg font-medium leading-relaxed text-white [text-shadow:0_1px_2px_rgba(3,22,28,0.7)] sm:text-xl">
             {heroContent.lead}
           </p>
 
@@ -105,10 +101,10 @@ export function HeroSection({
           </div>
         </div>
 
-        {/* Štatistiky na tmavom sklenenom paneli */}
-        <dl className="mt-16 grid w-full max-w-4xl grid-cols-1 divide-y divide-white/15 rounded-2xl bg-darker/45 ring-1 ring-inset ring-white/15 backdrop-blur-xl sm:grid-cols-3 sm:divide-x sm:divide-y-0 lg:mt-12">
+        {/* Štatistiky — obyčajný text nad tenkou čiarou, bez panelu */}
+        <dl className="mt-16 grid w-full max-w-4xl grid-cols-1 gap-8 border-t border-white/30 pt-8 sm:grid-cols-3 lg:mt-12">
           {heroContent.facts.map((fact) => (
-            <div key={fact.label} className="px-6 py-6 sm:py-7">
+            <div key={fact.label}>
               <dt className="sr-only">{fact.label}</dt>
               <dd>
                 <span className="block text-3xl font-extrabold tracking-tight sm:text-4xl">

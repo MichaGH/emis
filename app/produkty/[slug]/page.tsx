@@ -106,7 +106,7 @@ export default async function ProductPage(props: PageProps<"/produkty/[slug]">) 
       </section>
 
       <section className={`${CONTAINER} grid gap-6 py-16 lg:grid-cols-12 lg:py-24`}>
-        <div className="card rounded-[22px] p-7 sm:p-10 lg:col-span-7">
+        <div className="card rounded-xl p-7 sm:p-10 lg:col-span-7">
           <h2 className="text-2xl font-extrabold">Popis</h2>
           <div className="mt-5 space-y-4 text-lg leading-relaxed text-foreground">
             {product.description.map((p) => (
@@ -131,7 +131,7 @@ export default async function ProductPage(props: PageProps<"/produkty/[slug]">) 
         </div>
 
         <div className="lg:col-span-5">
-          <div className="bg-primary rounded-[22px] p-7 text-white sm:p-8">
+          <div className="bg-primary rounded-xl p-7 text-white sm:p-8">
             <h2 className="text-2xl font-extrabold">Technické parametre</h2>
             <dl className="mt-6 space-y-2">
               {product.specs.map((spec) => (

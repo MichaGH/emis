@@ -83,3 +83,29 @@ export const processOverview: {
   { number: "03", title: "Regulovaný prúd", text: "Uvoľňuje z elektród drobné častice striebra" },
   { number: "04", title: "Miešanie", text: "Rozptýli častice v celom objeme vody" },
 ];
+
+// Sekcia „Prečo si ho ľudia vyrábajú doma“ — dôvody z pohľadu ľudí, ktorí ho
+// používajú. Bez zdravotných tvrdení; referencie a upozornenia doplní klient.
+export const whyPeopleMakeIt = [
+  {
+    title: "Vedia, z čoho je",
+    text: "Iba destilovaná voda a striebro s čistotou 99,99 %. Nič, čo by nebolo vidieť.",
+  },
+  {
+    title: "Vždy čerstvé",
+    text: "Vyrobia si toľko, koľko práve potrebujú, a nemusia ho skladovať mesiace.",
+  },
+  {
+    title: "Vyjde lacnejšie",
+    text: "Prístroj a elektródy vydržia roky. Jedna várka je len voda a trocha striebra.",
+  },
+  {
+    title: "Stará tradícia",
+    text: "Striebro je v domácnostiach po generácie — od príborov až po nádoby na vodu.",
+  },
+];
+
+// Fotka prírody pre sekciu — horská bystrina (Pexels License).
+// Zdroj: https://www.pexels.com/video/majestic-mountain-stream-in-the-italian-alps-35574237/
+export const natureImage =
+  "https://images.pexels.com/videos/35574237/alpine-landscape-alpine-mountains-alpine-scenery-alpine-waterfall-35574237.jpeg?auto=compress&cs=tinysrgb&w=1600";

@@ -48,7 +48,7 @@ export default function ElectronicsPage() {
 
       <section className="bg-white">
         <div className={`${CONTAINER} grid items-center gap-14 py-20 lg:grid-cols-2 lg:py-28`}>
-          <div className="relative aspect-[5/4] overflow-hidden rounded-[28px] shadow-[0_40px_80px_-40px_rgba(6,15,38,0.55)]">
+          <div className="relative aspect-[5/4] overflow-hidden rounded-xl shadow-[0_40px_80px_-40px_rgba(6,15,38,0.55)]">
             <Image
               src="/images/workshop-soldering.jpg"
               alt="Spájkovanie elektroniky v dielni"

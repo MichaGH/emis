@@ -53,7 +53,7 @@ export default function SilverPage() {
         </article>
 
         <div className="lg:col-span-5 lg:col-start-8">
-          <div className="card rounded-[22px] p-5 sm:p-7">
+          <div className="card rounded-xl p-5 sm:p-7">
             <div className="p-2">
               <ProcessDiagram className="mx-auto h-auto w-full max-w-[340px]" />
             </div>
@@ -84,7 +84,7 @@ export default function SilverPage() {
           <ol className="mt-10 grid gap-4 sm:grid-cols-2">
             {processSteps.map((step) => {
               return (
-                <li key={step.number} className="card flex gap-6 rounded-[22px] p-8">
+                <li key={step.number} className="card flex gap-6 rounded-xl p-8">
                   <span className="text-primary text-5xl font-extrabold leading-none tracking-[-0.04em]">
                     {step.number}
                   </span>

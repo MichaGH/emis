@@ -36,46 +36,21 @@ export function ReasonsSection() {
           </ul>
         </div>
 
-        <div className="relative lg:col-span-6">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] sm:aspect-[5/5]">
+        {/* Snímka z mikroskopu s obyčajným popisom — bez plávajúcich kariet */}
+        <figure className="lg:col-span-6">
+          <div className="relative aspect-square overflow-hidden rounded-xl">
             <Image
-              src="/images/lab-beakers-dark.jpg"
-              alt="Sklenené kadičky na tmavom pozadí"
+              src="/images/nanoparticles1.webp"
+              alt="Častice striebra pod elektrónovým mikroskopom"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(200deg,transparent_40%,rgba(0,0,0,0.75)_100%)]" />
           </div>
-
-          {/* Plávajúca sklenená karta so štatistikou */}
-          <div className="glass-card absolute -bottom-6 right-4 rounded-2xl px-7 py-6 sm:right-8">
-            <p className="text-5xl font-extrabold tracking-[-0.03em] sm:text-6xl">
-              99,99 %
-            </p>
-            <p className="mt-1 max-w-[15rem] font-medium text-white">
-              čistota striebra elektród, s certifikátom výrobcu
-            </p>
-          </div>
-
-          {/* Snímka z mikroskopu */}
-          <figure className="absolute -left-4 top-8 w-40 sm:-left-8 sm:w-48">
-            <div className="relative aspect-square overflow-hidden rounded-full border-4 border-white/15 shadow-2xl">
-              <Image
-                src="/images/nanoparticles1.webp"
-                alt="Častice striebra pod elektrónovým mikroskopom"
-                fill
-                sizes="200px"
-                className="object-cover"
-              />
-            </div>
-            <figcaption className="mt-3 text-center text-sm font-semibold text-white">
-              Častice striebra
-              <br />
-              pod mikroskopom
-            </figcaption>
-          </figure>
-        </div>
+          <figcaption className="mt-3 text-[15px] text-white">
+            Častice striebra pod elektrónovým mikroskopom (ilustračná snímka).
+          </figcaption>
+        </figure>
       </div>
     </section>
   );

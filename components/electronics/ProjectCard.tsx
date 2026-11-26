@@ -14,7 +14,7 @@ function Screw({ className }: { className: string }) {
 // Karta realizácie — hlavička ako čelný štítok prístroja (skrutky, kontrolka, kód).
 export function ProjectCard({ project }: { project: ElectronicsProject }) {
   return (
-    <article className="group flex flex-col overflow-hidden rounded-[22px] bg-white ring-1 ring-black/[0.07] transition-shadow hover:shadow-[0_24px_50px_-30px_rgba(6,15,38,0.45)]">
+    <article className="group flex flex-col overflow-hidden rounded-xl bg-white ring-1 ring-black/[0.07] transition-shadow hover:shadow-[0_24px_50px_-30px_rgba(6,15,38,0.45)]">
       <div className="relative bg-dark px-6 pb-6 pt-7 text-white">
         <Screw className="left-3 top-3" />
         <Screw className="right-3 top-3" />
