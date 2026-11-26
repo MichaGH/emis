@@ -118,15 +118,15 @@ export const silverHealth = {
   intro: "Striebro sa v medicíne používa dodnes.",
   points: [
     {
-      text: "Striebro pôsobí antimikrobiálne — ióny striebra poškodzujú bunkové steny a enzýmy baktérií.",
+      text: "Bojuje s infekciami a funguje ako prevencia na chrípku, nádchu, zápalov dýchacich ciest, infekcie učí",
       href: "#",
     },
     {
-      text: "Obväzy so striebrom sa v nemocniciach používajú pri ošetrovaní rán a popálenín.",
+      text: "Podporuje imunitny system a pomaha pri liečbe s rôznymi chorobami.",
       href: "#",
     },
     {
-      text: "Striebrom sa pokrývajú aj zdravotnícke pomôcky, napríklad močové katétre.",
+      text: "Vyčistí akné, athletes foot, popaleniny a rany.",
       href: "#",
     },
   ],
