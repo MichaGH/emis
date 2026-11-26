@@ -13,16 +13,16 @@ export function ProductsSection() {
           <h2 className="text-[3.25rem] font-extrabold leading-[0.95] tracking-[-0.045em] sm:text-7xl lg:text-[6.5rem]">
             Generátory <span className="text-primary">GKS</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-xl font-medium leading-snug sm:text-2xl">
+          <p className="mx-auto mt-7 max-w-3xl text-2xl font-semibold leading-snug tracking-[-0.01em] sm:text-3xl lg:text-[2.25rem]">
             Elektródy z 99,99 % striebra s certifikátom výrobcu sú súčasťou
             balenia.
           </p>
           <Link
             href="/produkty"
-            className="mt-5 inline-flex items-center gap-2 font-bold text-primary hover:underline"
+            className="mt-7 inline-flex items-center gap-2 text-lg font-bold text-primary hover:underline sm:text-xl"
           >
             Porovnať modely
-            <ArrowRightIcon className="h-4 w-4" />
+            <ArrowRightIcon className="h-5 w-5" />
           </Link>
         </div>
 
