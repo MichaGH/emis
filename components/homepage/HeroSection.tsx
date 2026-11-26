@@ -1,22 +1,50 @@
 import Image from "next/image";
 import { CONTAINER } from "@/constants";
-import { heroContent } from "@/data/hero";
+import { heroContent, heroVideo } from "@/data/hero";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { ProcessOutline } from "@/components/illustrations/ProcessOutline";
 import { BottleOutline } from "@/components/illustrations/BottleOutline";
 
-const DEFAULT_IMAGE = "/images/lab-beakers-dark.jpg";
-// Čiernobiela fotka skla pôsobí striebristo (bez hnedého nádychu originálu).
-const DEFAULT_IMAGE_CLASS = "grayscale contrast-[1.15] brightness-[1.1]";
+const DEFAULT_IMAGE_CLASS = "";
+
+/** Predvolené pozadie: video trblietavej hladiny. Kým sa načíta (alebo pri
+ *  vypnutých animáciách v systéme), je vidieť statický náhľad. */
+function HeroVideoBackground() {
+  return (
+    <>
+      <Image
+        src={heroVideo.poster}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="-z-20 object-cover"
+      />
+      <video
+        className="absolute inset-0 -z-20 h-full w-full object-cover motion-reduce:hidden"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster={heroVideo.poster}
+        aria-hidden
+      >
+        <source src={heroVideo.sd} type="video/mp4" media="(max-width: 768px)" />
+        <source src={heroVideo.hd} type="video/mp4" />
+      </video>
+    </>
+  );
+}
 
 export function HeroSection({
-  image = DEFAULT_IMAGE,
+  image,
   imagePosition = "center",
   imageClassName = DEFAULT_IMAGE_CLASS,
   background,
   dim = 0,
 }: {
-  /** fotka v pozadí (lokálna cesta alebo URL) */
+  /** fotka v pozadí (lokálna cesta alebo URL) — bez nej beží video */
   image?: string;
   /** object-position fotky, napr. "center 30%" */
   imagePosition?: string;
@@ -29,7 +57,8 @@ export function HeroSection({
 } = {}) {
   return (
     <section className="relative isolate overflow-hidden bg-darker text-white">
-      {background ?? (
+      {background ??
+        (image ? (
         <Image
           src={image}
           alt=""
@@ -39,7 +68,9 @@ export function HeroSection({
           className={`-z-20 object-cover ${imageClassName}`}
           style={{ objectPosition: imagePosition }}
         />
-      )}
+        ) : (
+          <HeroVideoBackground />
+        ))}
       {/* Jemný tmavomodrý nádych celej plochy */}
       <div className="absolute inset-0 -z-10 bg-[#0a1838]/25" />
       {dim > 0 && (

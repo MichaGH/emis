@@ -10,3 +10,11 @@ export const heroContent = {
     { value: "od 1990", label: "vyrábame v Nižnej" },
   ],
 };
+
+// Video v pozadí úvodnej sekcie — trblietavá hladina, čiernobielo (Pexels License).
+// Zdroj: https://www.pexels.com/video/sparkling-water-waves-in-black-and-white-37934272/
+export const heroVideo = {
+  hd: "https://videos.pexels.com/video-files/37934272/16096233_1920_1080_30fps.mp4",
+  sd: "https://videos.pexels.com/video-files/37934272/16096228_960_540_30fps.mp4",
+  poster: "https://images.pexels.com/videos/37934272/pexels-photo-37934272.jpeg?auto=compress&cs=tinysrgb&w=1920",
+};
