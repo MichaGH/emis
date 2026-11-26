@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { heroImages, heroImageSrc } from "@/data/heroImages";
+import { heroImages, heroImageSrc, heroImageFilter } from "@/data/heroImages";
 import { HeroSection } from "@/components/homepage/HeroSection";
 import { ClientsSection } from "@/components/homepage/ClientsSection";
 import { ArrowLeftIcon, ArrowRightIcon } from "@/components/ui/Icons";
@@ -37,7 +37,12 @@ export function HeroImageTester() {
 
   return (
     <>
-      <HeroSection image={heroImageSrc(current)} imagePosition={position} dim={dim} />
+      <HeroSection
+        image={heroImageSrc(current)}
+        imageClassName={heroImageFilter(current)}
+        imagePosition={position}
+        dim={dim}
+      />
       <ClientsSection />
 
       <div
@@ -97,11 +102,7 @@ export function HeroImageTester() {
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element -- malé náhľady z CDN */}
                   <img
-                    src={
-                      img.id === "local"
-                        ? "/images/hero-pcb.jpg"
-                        : `https://images.unsplash.com/${img.id}?w=160&q=50&auto=format&fit=crop`
-                    }
+                    src={heroImageSrc(img, 160)}
                     alt=""
                     className="h-full w-full object-cover"
                   />

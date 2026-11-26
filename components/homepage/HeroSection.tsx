@@ -1,76 +1,82 @@
 import Image from "next/image";
-import { SITE, CONTAINER } from "@/constants";
+import { CONTAINER } from "@/constants";
+import { heroContent } from "@/data/hero";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { ProcessOutline } from "@/components/illustrations/ProcessOutline";
-import { ElectronicsOutline } from "@/components/illustrations/ElectronicsOutline";
+import { BottleOutline } from "@/components/illustrations/BottleOutline";
 
-const facts = [
-  { value: `${SITE.founded}`, label: "rok založenia v Nižnej" },
-  { value: "Na mieru", label: "prístroje podľa zadania" },
-  { value: "GKS", label: "generátory koloidného striebra" },
-];
+const DEFAULT_IMAGE = "/images/lab-beakers-dark.jpg";
+// Čiernobiela fotka skla pôsobí striebristo (bez hnedého nádychu originálu).
+const DEFAULT_IMAGE_CLASS = "grayscale contrast-[1.15] brightness-[1.1]";
 
 export function HeroSection({
-  image = "/images/hero-pcb.jpg",
+  image = DEFAULT_IMAGE,
   imagePosition = "center",
+  imageClassName = DEFAULT_IMAGE_CLASS,
+  background,
   dim = 0,
 }: {
   /** fotka v pozadí (lokálna cesta alebo URL) */
   image?: string;
   /** object-position fotky, napr. "center 30%" */
   imagePosition?: string;
-  /** extra rovnomerné stmavenie 0–1 (testovanie fotiek) */
+  /** filtre fotky (Tailwind triedy) */
+  imageClassName?: string;
+  /** vlastné pozadie namiesto fotky (napr. video) — musí mať -z-20 */
+  background?: React.ReactNode;
+  /** extra rovnomerné stmavenie 0–1 (testovanie) */
   dim?: number;
 } = {}) {
   return (
     <section className="relative isolate overflow-hidden bg-darker text-white">
-      {/* Fotka plošného spoja */}
-      <Image
-        src={image}
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="-z-20 object-cover brightness-[1.15] contrast-[1.12] saturate-[1.2]"
-        style={{ objectPosition: imagePosition }}
-      />
+      {background ?? (
+        <Image
+          src={image}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className={`-z-20 object-cover ${imageClassName}`}
+          style={{ objectPosition: imagePosition }}
+        />
+      )}
+      {/* Jemný tmavomodrý nádych celej plochy */}
+      <div className="absolute inset-0 -z-10 bg-[#0a1838]/25" />
       {dim > 0 && (
         <div className="absolute inset-0 -z-10 bg-darker" style={{ opacity: dim }} />
       )}
       {/* Jemné rozmazanie iba v strede (za textom a tlačidlami), plynulo
-          prechádza do ostrej fotky po okrajoch. */}
+          prechádza do ostrého pozadia po okrajoch. */}
       <div className="absolute inset-0 -z-10 backdrop-blur-[5px] [mask-image:radial-gradient(ellipse_48%_38%_at_50%_47%,#000_35%,transparent_100%)]" />
-      {/* Fotka je jasná a kontrastná. Stmavený je len pás hore (navigácia)
-          a ovál za textom; čitateľnosť dopĺňa tieň písma. */}
+      {/* Stmavený je len pás hore (navigácia) a ovál za textom;
+          čitateľnosť dopĺňa tieň písma. */}
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_46%_34%_at_50%_46%,rgba(6,15,38,0.66)_0%,rgba(6,15,38,0.48)_50%,transparent_100%),linear-gradient(180deg,rgba(6,15,38,0.5)_0%,transparent_20%,transparent_75%,rgba(6,15,38,0.3)_100%)]" />
 
-      {/* Nenápadné obrysy v pozadí — vľavo testovacie pracovisko, vpravo generátor */}
-      <ElectronicsOutline className="pointer-events-none absolute -left-20 top-16 -z-10 hidden h-[95%] text-white/[0.09] lg:block" />
-      <ProcessOutline className="pointer-events-none absolute -right-24 top-10 -z-10 hidden h-[115%] text-white/[0.09] lg:block" />
+      {/* Nenápadné obrysy v pozadí — vľavo fľaštička, vpravo generátor */}
+      <BottleOutline className="pointer-events-none absolute -left-16 top-20 -z-10 hidden h-[90%] text-white/[0.1] lg:block" />
+      <ProcessOutline className="pointer-events-none absolute -right-24 top-10 -z-10 hidden h-[115%] text-white/[0.1] lg:block" />
 
       <div className={`${CONTAINER} flex flex-col items-center pb-12 pt-[calc(var(--nav-h)+5.5rem)] text-center sm:pt-[calc(var(--nav-h)+7rem)] lg:min-h-svh lg:pb-14 lg:pt-[calc(var(--nav-h)+3rem)]`}>
         {/* Na desktope je hero na celú výšku okna, text je v strede, štatistiky dole */}
         <div className="flex flex-1 flex-col items-center justify-center">
-          <h1 className="max-w-4xl text-[3rem] [text-shadow:0_2px_30px_rgba(6,15,38,0.7),0_1px_3px_rgba(6,15,38,0.5)] font-extrabold leading-[1.02] tracking-[-0.035em] sm:text-7xl lg:text-[5.75rem]">
-            Elektronika na mieru
+          <h1 className="max-w-4xl text-[3rem] font-extrabold leading-[1.02] tracking-[-0.035em] [text-shadow:0_2px_30px_rgba(6,15,38,0.7),0_1px_3px_rgba(6,15,38,0.5)] sm:text-7xl lg:text-[5.75rem]">
+            {heroContent.title}
           </h1>
           <p className="mt-7 max-w-2xl text-lg font-medium leading-relaxed text-white [text-shadow:0_1px_14px_rgba(6,15,38,0.85),0_1px_2px_rgba(6,15,38,0.6)] sm:text-xl">
-            Navrhujeme a vyrábame elektronické zariadenia — od jednoúčelových
-            prístrojov pre výrobu až po generátory koloidného striebra pre
-            domácnosť.
+            {heroContent.lead}
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-3">
-            <ButtonLink href="/#eshop">Generátory striebra</ButtonLink>
-            <ButtonLink href="/elektronika" variant="glass">
-              Zákazkový vývoj
+            <ButtonLink href={heroContent.primary.href}>{heroContent.primary.label}</ButtonLink>
+            <ButtonLink href={heroContent.secondary.href} variant="glass">
+              {heroContent.secondary.label}
             </ButtonLink>
           </div>
         </div>
 
-        {/* Štatistiky na sklenenom paneli */}
-        <dl className="mt-16 grid bg-darker/45 ring-1 ring-inset ring-white/15 backdrop-blur-xl w-full max-w-4xl grid-cols-1 divide-y divide-white/15 rounded-2xl sm:grid-cols-3 sm:divide-x sm:divide-y-0 lg:mt-12">
-          {facts.map((fact) => (
+        {/* Štatistiky na tmavom sklenenom paneli */}
+        <dl className="mt-16 grid w-full max-w-4xl grid-cols-1 divide-y divide-white/15 rounded-2xl bg-darker/45 ring-1 ring-inset ring-white/15 backdrop-blur-xl sm:grid-cols-3 sm:divide-x sm:divide-y-0 lg:mt-12">
+          {heroContent.facts.map((fact) => (
             <div key={fact.label} className="px-6 py-6 sm:py-7">
               <dt className="sr-only">{fact.label}</dt>
               <dd>

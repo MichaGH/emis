@@ -1,12 +1,15 @@
 import Image from "next/image";
 import { CONTAINER } from "@/constants";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { ClientLogoList } from "@/components/homepage/ClientsSection";
 
+// Zákazková elektronika — menšia sekcia nižšie na úvodnej stránke,
+// spolu s logami firiem, pre ktoré sme zariadenia vyvíjali.
 export function ElectronicsSection() {
   return (
-    <section className="bg-white py-20 lg:py-28">
+    <section className="bg-white py-16 lg:py-20">
       <div className={CONTAINER}>
-        <div className="relative isolate overflow-hidden rounded-[28px] text-white">
+        <div className="relative isolate overflow-hidden rounded-[22px] text-white">
           <Image
             src="/images/chip-tweezers.jpg"
             alt=""
@@ -16,12 +19,13 @@ export function ElectronicsSection() {
           />
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,rgba(6,15,38,0.96)_0%,rgba(10,24,56,0.88)_50%,rgba(10,24,56,0.55)_100%)]" />
 
-          <div className="flex flex-col gap-10 p-8 sm:p-12 lg:flex-row lg:items-center lg:justify-between lg:p-16">
+          <div className="flex flex-col gap-8 p-7 sm:p-10 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-xl">
-              <h2 className="text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] sm:text-5xl">
+              <p className="text-[15px] font-semibold text-accent">Elektronika na zákazku</p>
+              <h2 className="mt-2 text-3xl font-extrabold leading-[1.1] tracking-[-0.02em] sm:text-4xl">
                 Prístroj presne podľa vášho zadania
               </h2>
-              <p className="mt-5 text-lg leading-relaxed text-white">
+              <p className="mt-4 leading-relaxed text-white">
                 Testovacie pracoviská, riadenie a signalizácia pre výrobu. Od
                 schémy až po hotové zariadenie so servisom.
               </p>
@@ -33,6 +37,11 @@ export function ElectronicsSection() {
               </ButtonLink>
             </div>
           </div>
+        </div>
+
+        <div className="mt-12 text-center">
+          <h3 className="text-lg font-bold">Zariadenia sme vyvíjali pre:</h3>
+          <ClientLogoList className="mt-8" />
         </div>
       </div>
     </section>

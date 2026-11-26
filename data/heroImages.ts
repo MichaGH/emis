@@ -10,12 +10,19 @@ export type HeroImage = {
   /** stránka fotky na Unsplash (autor, licencia) */
   source: string;
   position?: string;
+  /** lokálny súbor v /public (inak sa načíta z Unsplash CDN) */
+  local?: string;
+  /** filtre fotky (Tailwind triedy) */
+  filter?: string;
 };
+
+const VIVID = "brightness-[1.15] contrast-[1.12] saturate-[1.2]";
 
 const U = "https://unsplash.com/photos/";
 
 export const heroImages: HeroImage[] = [
-  { id: "local", group: "Aktuálna", label: "Tmavomodrá doska (súčasná)", source: `${U}pfR18JNEMv8` },
+  { id: "local-beakers", group: "Aktuálna", label: "Laboratórne sklo, čiernobielo (súčasná)", source: "https://unsplash.com/photos/photo-1761095596584-34731de3e568", local: "/images/lab-beakers-dark.jpg", filter: "grayscale contrast-[1.15] brightness-[1.1]" },
+  { id: "local-pcb", group: "Aktuálna", label: "Tmavomodrá doska (predošlá)", source: `${U}pfR18JNEMv8`, local: "/images/hero-pcb.jpg" },
 
   { id: "photo-1518770660439-4636190af475", group: "Dosky plošných spojov", label: "Čierna doska, makro", source: `${U}FO7JIlwjOtU` },
   { id: "photo-1697952431907-8542919a16b3", group: "Dosky plošných spojov", label: "Čiernobiela doska", source: `${U}b_GcLCaKt94` },
@@ -42,8 +49,13 @@ export const heroImages: HeroImage[] = [
   { id: "photo-1573399054516-90665ecc44be", group: "Meracie prístroje", label: "Retro CRT televízor", source: `${U}-I8lDurtfAo` },
 ];
 
-export function heroImageSrc(img: HeroImage) {
-  return img.id === "local"
-    ? "/images/hero-pcb.jpg"
-    : `https://images.unsplash.com/${img.id}?w=2400&q=80&auto=format&fit=crop`;
+export function heroImageSrc(img: HeroImage, width = 2400) {
+  return (
+    img.local ??
+    `https://images.unsplash.com/${img.id}?w=${width}&q=${width > 400 ? 80 : 50}&auto=format&fit=crop`
+  );
+}
+
+export function heroImageFilter(img: HeroImage) {
+  return img.filter ?? VIVID;
 }

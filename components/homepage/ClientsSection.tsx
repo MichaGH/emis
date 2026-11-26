@@ -33,6 +33,20 @@ const logos: { name: string; logo: React.ReactNode }[] = [
   },
 ];
 
+/** Riadok log odberateľov — samostatne aj v sekcii zákazkovej elektroniky. */
+export function ClientLogoList({ className = "" }: { className?: string }) {
+  return (
+    <ul className={`flex flex-wrap items-center justify-center gap-x-14 gap-y-10 lg:gap-x-24 ${className}`}>
+      {logos.map((c) => (
+        <li key={c.name} className="flex items-center" title={c.name}>
+          <span className="sr-only">{c.name}</span>
+          {c.logo}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export function ClientsSection() {
   return (
     <section aria-labelledby="clients-heading" className="bg-surface">
@@ -40,14 +54,7 @@ export function ClientsSection() {
         <h2 id="clients-heading" className="text-xl font-bold sm:text-2xl">
           Zariadenia sme vyvíjali pre:
         </h2>
-        <ul className="mt-9 flex flex-wrap items-center justify-center gap-x-14 gap-y-10 lg:gap-x-24">
-          {logos.map((c) => (
-            <li key={c.name} className="flex items-center" title={c.name}>
-              <span className="sr-only">{c.name}</span>
-              {c.logo}
-            </li>
-          ))}
-        </ul>
+        <ClientLogoList className="mt-9" />
       </div>
     </section>
   );

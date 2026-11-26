@@ -70,7 +70,7 @@ export function FontPicker() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="fixed bottom-5 right-5 z-50 inline-flex h-12 items-center gap-2.5 rounded-xl bg-foreground pl-3 pr-4 text-sm font-bold text-white shadow-[0_12px_30px_-10px_rgba(6,15,38,0.6)] hover:bg-dark"
+        className="fixed bottom-5 right-5 z-[45] inline-flex h-12 items-center gap-2.5 rounded-xl bg-foreground pl-3 pr-4 text-sm font-bold text-white shadow-[0_12px_30px_-10px_rgba(6,15,38,0.6)] hover:bg-dark"
         aria-label="Otvoriť výber písma"
         style={{ fontFamily: "system-ui, sans-serif" }}
       >
@@ -91,7 +91,7 @@ export function FontPicker() {
     <div
       role="dialog"
       aria-label="Výber písma"
-      className="fixed bottom-5 right-5 z-50 flex max-h-[min(640px,calc(100dvh-40px))] w-[340px] max-w-[calc(100vw-40px)] flex-col overflow-hidden rounded-2xl bg-white text-foreground shadow-[0_24px_60px_-16px_rgba(6,15,38,0.55)] ring-1 ring-black/10"
+      className="fixed bottom-5 right-5 z-[45] flex max-h-[min(640px,calc(100dvh-40px))] w-[340px] max-w-[calc(100vw-40px)] flex-col overflow-hidden rounded-2xl bg-white text-foreground shadow-[0_24px_60px_-16px_rgba(6,15,38,0.55)] ring-1 ring-black/10"
       style={{ fontFamily: "system-ui, sans-serif" }}
     >
       <div className="flex items-center justify-between bg-foreground px-4 py-3 text-white">

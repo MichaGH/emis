@@ -1,19 +1,28 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useCart } from "@/components/cart/CartProvider";
 import { formatPrice, pluralItems } from "@/lib/format";
 import { ProductMedia } from "@/components/product/ProductMedia";
+import { InquiryForm } from "@/components/cart/InquiryForm";
 import {
   CloseIcon,
   ArrowRightIcon,
   PlusIcon,
   MinusIcon,
   TrashIcon,
+  CheckIcon,
 } from "@/components/ui/Icons";
 
 export function CartDrawer() {
-  const { lines, total, isOpen, closeCart, removeItem, setQuantity } = useCart();
+  const { lines, total, isOpen, closeCart, removeItem, setQuantity, clear } = useCart();
+  // Kroky: košík → údaje (nezáväzný dopyt) → potvrdenie
+  const [step, setStep] = useState<"cart" | "form" | "sent">("cart");
+
+  const close = () => {
+    closeCart();
+    if (step !== "cart") setStep("cart");
+  };
 
   useEffect(() => {
     if (!isOpen) return;
@@ -34,7 +43,7 @@ export function CartDrawer() {
       aria-hidden={!isOpen}
     >
       <div
-        onClick={closeCart}
+        onClick={close}
         className={`absolute inset-0 bg-dark/50 transition-opacity duration-200 ${
           isOpen ? "opacity-100" : "opacity-0"
         }`}
@@ -49,14 +58,20 @@ export function CartDrawer() {
       >
         <header className="bg-primary flex items-center justify-between px-6 py-5 text-white">
           <div>
-            <h2 className="text-xl font-bold">Košík</h2>
+            <h2 className="text-xl font-bold">
+              {step === "cart" ? "Košík" : "Nezáväzný dopyt"}
+            </h2>
             <p className="text-sm text-white">
-              {lines.length === 0 ? "Zatiaľ prázdny" : pluralItems(lines.length)}
+              {step === "sent"
+                ? "Odoslané"
+                : lines.length === 0
+                  ? "Zatiaľ prázdny"
+                  : pluralItems(lines.length)}
             </p>
           </div>
           <button
             type="button"
-            onClick={closeCart}
+            onClick={close}
             aria-label="Zavrieť košík"
             className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 transition-colors hover:bg-white/25"
           >
@@ -64,13 +79,46 @@ export function CartDrawer() {
           </button>
         </header>
 
+        {step === "sent" && (
+          <div className="flex flex-1 flex-col items-center justify-center p-8 text-center">
+            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white">
+              <CheckIcon className="h-7 w-7" />
+            </span>
+            <p className="mt-5 text-xl font-bold">Dopyt sme prijali</p>
+            <p className="mt-2 max-w-xs leading-relaxed">
+              Ozveme sa vám s platobnými údajmi a termínom dodania.
+            </p>
+            <button
+              type="button"
+              onClick={close}
+              className="btn-primary mt-6 rounded-lg px-5 py-3 font-semibold"
+            >
+              Zavrieť
+            </button>
+          </div>
+        )}
+
+        {step === "form" && lines.length > 0 && (
+          <div className="flex-1 overflow-y-auto">
+            <InquiryForm
+              lines={lines}
+              onBack={() => setStep("cart")}
+              onSent={() => {
+                clear();
+                setStep("sent");
+              }}
+            />
+          </div>
+        )}
+
+        {(step === "cart" || (step === "form" && lines.length === 0)) && (
         <div className="flex-1 overflow-y-auto p-5">
           {lines.length === 0 ? (
             <div className="flex h-full flex-col items-center justify-center text-center">
               <p className="text-lg font-medium">V košíku zatiaľ nič nie je.</p>
               <button
                 type="button"
-                onClick={closeCart}
+                onClick={close}
                 className="mt-4 btn-primary rounded-lg px-5 py-3 font-semibold"
               >
                 Pokračovať vo výbere
@@ -133,8 +181,9 @@ export function CartDrawer() {
             </ul>
           )}
         </div>
+        )}
 
-        {lines.length > 0 && (
+        {step === "cart" && lines.length > 0 && (
           <footer className="p-5 pt-0">
             <div className="rounded-xl bg-surface p-5">
               <div className="flex items-baseline justify-between">
@@ -143,15 +192,16 @@ export function CartDrawer() {
                   {formatPrice(total)}
                 </span>
               </div>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                Po odoslaní objednávky vám pošleme potvrdenie s platobnými
-                údajmi a termínom odoslania.
+              <p className="mt-2 text-sm leading-relaxed">
+                Objednávka je nezáväzný dopyt — nič neplatíte vopred. Ozveme sa
+                vám s platobnými údajmi a termínom dodania.
               </p>
               <button
                 type="button"
+                onClick={() => setStep("form")}
                 className="btn-primary mt-4 flex w-full items-center justify-center gap-2 rounded-lg px-5 py-4 font-bold"
               >
-                Pokračovať k objednávke
+                Pokračovať k dopytu
                 <ArrowRightIcon className="h-4 w-4" />
               </button>
             </div>
