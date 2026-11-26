@@ -27,15 +27,12 @@ export function ProductCard({ product }: { product: Product }) {
           <p className="mt-2 text-[17px] font-semibold text-muted">{product.name}</p>
         </Link>
 
-        <p className="mt-4 flex-1 leading-relaxed text-foreground">
-          {product.shortDescription}
-        </p>
-
-        <p className="mt-5 text-[15px] font-semibold text-foreground">
+        {/* bez odseku s popisom — len kľúčové parametre */}
+        <p className="mt-4 flex-1 text-[15px] font-semibold text-foreground">
           {product.keySpecs.map((s) => s.value).join("  ·  ")}
         </p>
 
-        <div className="mt-7 flex items-center justify-between gap-4">
+        <div className="mt-6 flex items-center justify-between gap-4 border-t border-border pt-5">
           <div>
             <p className="text-sm font-medium text-muted">s DPH</p>
             <p className="text-[1.75rem] font-extrabold leading-none tracking-tight">
