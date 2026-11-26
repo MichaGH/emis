@@ -5,7 +5,7 @@ import { silverHealth } from "@/data/silver";
 import { ArrowRightIcon } from "@/components/ui/Icons";
 
 // Striebro a zdravie — tmavá polovica s textom a fotka rodiny v horách cez
-// celú výšku. Tvrdenia majú číslované zdroje [1], [2]… (data/silver.ts).
+// celú výšku. Body majú odkaz na zdroj [1], [2], [3] (data/silver.ts).
 export function HealthSection() {
   return (
     <section className="relative bg-[#03161c] text-white">
@@ -27,25 +27,23 @@ export function HealthSection() {
           </h2>
           <p className="mt-5 text-lg leading-relaxed">{silverHealth.intro}</p>
 
-          <ol className="mt-10 space-y-6">
+          {/* Tri body bez číslovania — oddelené čiarou, odkaz na zdroj [n] */}
+          <ul className="mt-10 divide-y divide-white/15 border-y border-white/15">
             {silverHealth.points.map((point, i) => (
-              <li key={point.text} className="flex gap-5">
-                <span className="text-3xl font-extrabold leading-none text-accent">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="text-lg leading-relaxed">
-                  {point.text}
-                  <a
-                    href={`#zdroj-${point.ref}`}
-                    className="ml-1 align-super text-sm font-bold text-accent hover:underline"
-                    aria-label={`Zdroj ${point.ref}`}
-                  >
-                    [{point.ref}]
-                  </a>
-                </p>
+              <li key={point.text} className="py-5 text-xl font-semibold leading-snug">
+                {point.text}
+                <a
+                  href={point.href}
+                  target={point.href.startsWith("http") ? "_blank" : undefined}
+                  rel="noreferrer"
+                  className="ml-1.5 align-super text-sm font-bold text-accent hover:underline"
+                  aria-label={`Zdroj ${i + 1}`}
+                >
+                  [{i + 1}]
+                </a>
               </li>
             ))}
-          </ol>
+          </ul>
 
           <Link
             href="/koloidne-striebro"
@@ -55,16 +53,6 @@ export function HealthSection() {
             <ArrowRightIcon className="h-4 w-4" />
           </Link>
 
-          <div className="mt-12 border-t border-white/20 pt-6">
-            <h3 className="text-sm font-bold">Zdroje</h3>
-            <ol className="mt-3 space-y-2 text-[13px] leading-relaxed">
-              {silverHealth.references.map((ref, i) => (
-                <li key={ref} id={`zdroj-${i + 1}`} className="scroll-mt-28">
-                  [{i + 1}] {ref}
-                </li>
-              ))}
-            </ol>
-          </div>
         </div>
       </div>
     </section>

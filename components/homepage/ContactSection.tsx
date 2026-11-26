@@ -4,7 +4,7 @@ import { PhoneIcon, MailIcon, PinIcon, ArrowRightIcon } from "@/components/ui/Ic
 
 export function ContactSection() {
   return (
-    <section id="kontakt" className="bg-primary scroll-mt-20 text-white">
+    <section id="kontakt" className="scroll-mt-20 bg-[#03161c] text-white">
       <div className={`${CONTAINER} grid gap-12 py-20 lg:grid-cols-12 lg:gap-16 lg:py-28`}>
         <div className="lg:col-span-5">
           <h2 className="mt-3 text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] sm:text-5xl">

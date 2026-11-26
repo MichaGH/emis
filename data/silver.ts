@@ -110,28 +110,24 @@ export const whyPeopleMakeIt = [
 export const natureImage =
   "https://images.pexels.com/videos/35574237/alpine-landscape-alpine-mountains-alpine-scenery-alpine-waterfall-35574237.jpeg?auto=compress&cs=tinysrgb&w=1600";
 
-// Sekcia „Striebro a zdravie“ — iba overiteľné fakty so zdrojmi (ref = číslo
-// v zozname zdrojov). Klient môže body a zdroje upraviť; každé tvrdenie má mať zdroj.
+// Sekcia „Striebro a zdravie“ — tri body, každý s odkazom [1], [2], [3] na zdroj
+// (href doplní klient — odkaz na štúdiu / literatúru; „#“ = zatiaľ bez zdroja).
+// Text bodov upravuje klient; každé tvrdenie má mať svoj zdroj.
 export const silverHealth = {
   title: "Striebro a zdravie",
-  intro: "Striebro sa v medicíne používa dodnes. Niekoľko faktov, ktoré potvrdzujú odborné zdroje:",
+  intro: "Striebro sa v medicíne používa dodnes.",
   points: [
     {
       text: "Striebro pôsobí antimikrobiálne — ióny striebra poškodzujú bunkové steny a enzýmy baktérií.",
-      ref: 1,
+      href: "#",
     },
     {
       text: "Obväzy so striebrom sa v nemocniciach používajú pri ošetrovaní rán a popálenín.",
-      ref: 2,
+      href: "#",
     },
     {
       text: "Striebrom sa pokrývajú aj zdravotnícke pomôcky, napríklad močové katétre.",
-      ref: 3,
+      href: "#",
     },
-  ],
-  references: [
-    "Lansdown, A. B. G.: Silver in health care: antimicrobial effects and safety in use. Current Problems in Dermatology, 33, 2006, s. 17–34.",
-    "Khansa, I. a kol.: Silver in Wound Care — Friend or Foe?: A Comprehensive Review. Plastic and Reconstructive Surgery – Global Open, 7(8), 2019, e2390.",
-    "Lam, T. B. L. a kol.: Types of indwelling urethral catheters for short-term catheterisation in hospitalised adults. Cochrane Database of Systematic Reviews, 2014.",
   ],
 };
