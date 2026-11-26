@@ -87,8 +87,8 @@ export function HeroSection({
       <BottleOutline className="pointer-events-none absolute -left-16 top-20 -z-10 hidden h-[90%] text-white/[0.1] lg:block" />
       <ProcessOutline className="pointer-events-none absolute -right-24 top-10 -z-10 hidden h-[115%] text-white/[0.1] lg:block" />
 
-      {/* Nižšia úvodná sekcia (cca pol obrazovky) — nadpis, veta, tlačidlá */}
-      <div className={`${CONTAINER} flex flex-col items-center pb-24 pt-[calc(var(--nav-h)+3.5rem)] text-center sm:pb-28 lg:pb-28 lg:pt-[calc(var(--nav-h)+3rem)]`}>
+      {/* Úvodná sekcia (na desktope min. 85 % výšky okna) — nadpis, veta, tlačidlá */}
+      <div className={`${CONTAINER} flex flex-col items-center justify-center pb-24 pt-[calc(var(--nav-h)+3.5rem)] text-center sm:pb-28 lg:min-h-[85svh] lg:pb-32 lg:pt-[calc(var(--nav-h)+2rem)]`}>
         <h1 className="max-w-5xl text-[3rem] font-extrabold leading-[1.02] tracking-[-0.04em] [text-shadow:0_1px_2px_rgba(3,22,28,0.6)] sm:text-7xl lg:text-[5rem]">
           {heroContent.title}
         </h1>
