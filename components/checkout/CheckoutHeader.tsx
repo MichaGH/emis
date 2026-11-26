@@ -40,7 +40,7 @@ export function CheckoutHeader({ step, title }: { step: 1 | 2 | 3; title: string
                     {s.label}
                   </Link>
                 ) : (
-                  <span className={`flex items-center gap-2.5 ${current || done ? "" : "opacity-60"}`} aria-current={current ? "step" : undefined}>
+                  <span className="flex items-center gap-2.5" aria-current={current ? "step" : undefined}>
                     {badge}
                     {s.label}
                   </span>

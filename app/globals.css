@@ -89,8 +89,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-secondary), system-ui, sans-serif;
-  /* o stupeň hrubší text — tenké písmo pôsobí šedo */
-  font-weight: 450;
+  /* hrubší text — DM Sans má tenké ťahy a pri 400 pôsobí šedo */
+  font-weight: 500;
   text-rendering: optimizeLegibility;
 }
 

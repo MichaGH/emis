@@ -10,7 +10,7 @@ export function ProductsSection() {
       <div className={`${CONTAINER} py-20 lg:py-28`}>
         {/* Veľký nadpis na jeden riadok, pod ním podnadpis a odkaz — na stred */}
         <div className="border-b border-border pb-10 text-center">
-          <h2 className="text-[3.25rem] font-extrabold leading-[0.95] tracking-[-0.045em] sm:text-7xl lg:text-[6.5rem]">
+          <h2 className="text-[2.5rem] font-extrabold leading-[1] tracking-[-0.04em] sm:text-5xl lg:text-[3.75rem]">
             Generátory <span className="text-primary">GKS</span>
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-xl font-medium leading-snug sm:text-2xl">
