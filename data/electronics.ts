@@ -1,9 +1,10 @@
 import type { ElectronicsProject } from "@/lib/types";
 
-// Zariadenia vyvinuté na zákazku — podľa pôvodného webu emis.sk.
+// Zariadenia vyvinuté na zákazku — podľa pôvodného webu emis.sk (aj fotky).
 export const electronicsProjects: ElectronicsProject[] = [
   {
     code: "CÍN",
+    photos: ["/images/realizacie/cin-4.jpg", "/images/realizacie/cin-1.jpg", "/images/realizacie/cin-2.jpg", "/images/realizacie/cin-3.jpg"],
     category: "Výrobné zariadenie",
     title: "Cínovacie zariadenie",
     description:
@@ -12,6 +13,7 @@ export const electronicsProjects: ElectronicsProject[] = [
   },
   {
     code: "DVB-T",
+    photos: ["/images/realizacie/dvbt-03.jpg", "/images/realizacie/dvbt-02.jpg", "/images/realizacie/dvbt-04.jpg", "/images/realizacie/dvbt-01.jpg"],
     category: "Testovacie pracovisko",
     title: "Pracovisko pre moduly DVB-T",
     description:
@@ -19,6 +21,7 @@ export const electronicsProjects: ElectronicsProject[] = [
   },
   {
     code: "CTV2011",
+    photos: ["/images/realizacie/lcd-04.jpg", "/images/realizacie/lcd-03.jpg", "/images/realizacie/lcd-05.jpg", "/images/realizacie/lcd-01.jpg", "/images/realizacie/lcd-02.jpg"],
     category: "Testovacie pracovisko",
     title: "Pracovisko LCD FTVP CTV2011",
     description:
@@ -26,6 +29,7 @@ export const electronicsProjects: ElectronicsProject[] = [
   },
   {
     code: "DM716",
+    photos: ["/images/realizacie/dm716-2.jpg", "/images/realizacie/dm716-5.jpg", "/images/realizacie/dm716-3.jpg", "/images/realizacie/dm716-4.jpg", "/images/realizacie/dm716-1.jpg"],
     category: "Kamerové systémy",
     title: "Demodulátor pre kamerové systémy",
     description:
@@ -33,6 +37,7 @@ export const electronicsProjects: ElectronicsProject[] = [
   },
   {
     code: "TONER",
+    photos: ["/images/realizacie/toner-4.jpg", "/images/realizacie/toner-2.jpg", "/images/realizacie/toner-3.jpg", "/images/realizacie/toner-1.jpg"],
     category: "Testovacie zariadenie",
     title: "Tester tonera",
     description:
@@ -40,6 +45,7 @@ export const electronicsProjects: ElectronicsProject[] = [
   },
   {
     code: "INFO",
+    photos: ["/images/realizacie/info-001.jpg", "/images/realizacie/info-002.jpg"],
     category: "Riadenie výroby",
     title: "Informačná tabuľa",
     description:
@@ -47,6 +53,7 @@ export const electronicsProjects: ElectronicsProject[] = [
   },
   {
     code: "HOD",
+    photos: ["/images/realizacie/hodiny-1.jpg"],
     category: "Signalizácia",
     title: "Hodiny pre výrobné haly",
     description:
@@ -54,6 +61,7 @@ export const electronicsProjects: ElectronicsProject[] = [
   },
   {
     code: "ADAPTÉR",
+    photos: ["/images/realizacie/adapter-2.jpg", "/images/realizacie/adapter-1.jpg", "/images/realizacie/adapter-3.jpg", "/images/realizacie/adapter-4.jpg"],
     category: "Testovanie DPS",
     title: "Ihlové polia a adaptéry",
     description:

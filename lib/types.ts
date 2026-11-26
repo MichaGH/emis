@@ -46,6 +46,8 @@ export type ElectronicsProject = {
   title: string;
   description: string;
   client?: string;
+  /** fotky z /public/images/realizacie — prvá je titulná */
+  photos: string[];
 };
 
 export type Faq = {

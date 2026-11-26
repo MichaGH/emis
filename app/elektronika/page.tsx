@@ -4,7 +4,7 @@ import { CONTAINER, SITE } from "@/constants";
 import { clients, electronicsProjects, workPrinciples } from "@/data/electronics";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { ContactSection } from "@/components/homepage/ContactSection";
-import { ProjectCard } from "@/components/electronics/ProjectCard";
+import { ProjectGallery } from "@/components/electronics/ProjectGallery";
 
 export const metadata: Metadata = {
   title: "Zákazková elektronika — EMIS",
@@ -19,7 +19,7 @@ export default function ElectronicsPage() {
         crumb="Zákazková elektronika"
         title="Jednoúčelové zariadenia pre výrobu a prevádzku"
         lead={`Od roku ${SITE.founded} navrhujeme hardvér aj softvér prístrojov presne podľa toho, čo zákazník potrebuje.`}
-        image="/images/chip-tweezers.jpg"
+        image="/images/realizacie/dm716-3.jpg"
       >
         <p className="mt-12 text-[15px] font-semibold text-white">
           Zariadenia sme dodali pre
@@ -34,14 +34,12 @@ export default function ElectronicsPage() {
               Vybrané realizácie
             </h2>
             <p className="mt-4 text-lg text-foreground">
-              Zariadenia, ktoré sme navrhli a postavili pre výrobné firmy.
+              Zariadenia, ktoré sme navrhli a postavili pre výrobné firmy. Kliknite na fotku pre viac záberov.
             </p>
           </div>
 
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {electronicsProjects.map((p) => (
-              <ProjectCard key={p.code} project={p} />
-            ))}
+          <div className="mt-14">
+            <ProjectGallery projects={electronicsProjects} />
           </div>
         </div>
       </section>

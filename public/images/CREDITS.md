@@ -16,3 +16,7 @@ uvedenie autora nie je povinné.
 `nanoparticles1.webp` — ilustračná snímka z elektrónového mikroskopu (pôvodne v repozitári).
 
 Produktové fotografie generátorov dodá klient do `products/`.
+| family-mountains.jpg | https://unsplash.com/photos/group-of-people-sitting-on-rocks-overlooking-mountain-smJ6XsYy8gA |
+| family-meadow.jpg | https://unsplash.com/photos/woman-holding-man-and-toddler-hands-during-daytime-5NLCaz2wJXE |
+
+Fotky realizácií v `realizacie/` pochádzajú z pôvodného webu klienta emis.sk.

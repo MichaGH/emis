@@ -18,7 +18,7 @@ export function PageHeader({
   return (
     <section className="relative isolate overflow-hidden bg-darker text-white">
       <Image src={image} alt="" fill priority sizes="100vw" className="-z-20 object-cover" />
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(6,15,38,0.85)_0%,rgba(10,24,56,0.8)_60%,rgba(6,15,38,0.95)_100%)]" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(6,15,38,0.82)_0%,rgba(10,24,56,0.58)_55%,rgba(6,15,38,0.85)_100%)]" />
 
       <div className={`${CONTAINER} pb-16 pt-[calc(var(--nav-h)+2.5rem)] lg:pb-24 lg:pt-[calc(var(--nav-h)+3.5rem)]`}>
         <nav aria-label="Omrvinky" className="text-sm font-semibold">

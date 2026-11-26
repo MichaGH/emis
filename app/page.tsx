@@ -13,8 +13,8 @@ export default function Home() {
     <>
       <HeroSection />
       <ProductsSection />
-      <NatureSection />
       <HealthSection />
+      <NatureSection />
       <SilverSection />
       <ReasonsSection />
       <BenefitsSection />
