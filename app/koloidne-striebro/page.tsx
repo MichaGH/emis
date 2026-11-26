@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { CONTAINER } from "@/constants";
-import { processSteps, silverFaq } from "@/data/silver";
+import { natureImage, processSteps, silverFaq } from "@/data/silver";
+import { FactsBand } from "@/components/silver/FactsBand";
+import { NatureBand } from "@/components/silver/NatureBand";
+import { ArticlesSection } from "@/components/silver/ArticlesSection";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ButtonLink } from "@/components/ui/ButtonLink";
@@ -26,6 +29,7 @@ export default function SilverPage() {
         crumb="Koloidné striebro"
         title="Koloidné striebro: čo to je a ako ho vyrobiť"
         lead="Stručne a vecne — z čoho vzniká, čo pri výrobe potrebujete a na čo si dať pozor."
+        image={natureImage}
       />
 
       <section className={`${CONTAINER} grid gap-10 py-16 lg:grid-cols-12 lg:py-24`}>
@@ -75,6 +79,8 @@ export default function SilverPage() {
         </div>
       </section>
 
+      <FactsBand />
+
       <section className="bg-surface">
         <div className={`${CONTAINER} py-16 lg:py-24`}>
           <SectionLabel label="Postup výroby" />
@@ -100,6 +106,9 @@ export default function SilverPage() {
           </ol>
         </div>
       </section>
+
+      <NatureBand />
+      <ArticlesSection />
 
       <section className={`${CONTAINER} grid gap-10 py-16 lg:grid-cols-12 lg:py-24`}>
         <div className="lg:col-span-4">

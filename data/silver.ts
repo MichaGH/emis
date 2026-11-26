@@ -28,22 +28,6 @@ export const processSteps: ProcessStep[] = [
   },
 ];
 
-// Prečo vlastný prístroj — konkrétne dôvody, žiadne slogany.
-export const reasons = [
-  {
-    title: "Stabilný prúd počas celej výroby",
-    text: "Ako pribúda striebra vo vode, mení sa jej vodivosť. Elektronická regulácia prúd udržiava, takže výroba nebeží „naslepo“.",
-  },
-  {
-    title: "Elektródy s certifikátom",
-    text: "Striebro 99,99 % dodávame s certifikátom od výrobcu. Viete presne, čo do vody ponárate.",
-  },
-  {
-    title: "Vyrobené a servisované na Orave",
-    text: "Prístroje navrhujeme a skladáme sami v Nižnej. Ak treba poradiť alebo opraviť, voláte priamo konštruktérovi.",
-  },
-];
-
 export const silverFaq: Faq[] = [
   {
     question: "Akú vodu použiť?",
@@ -131,3 +115,11 @@ export const silverHealth = {
     },
   ],
 };
+
+// Fakty o samotnom roztoku — podstránka /koloidne-striebro.
+export const silverFacts = [
+  { value: "2 zložky", label: "destilovaná voda a striebro — nič iné" },
+  { value: "99,99 %", label: "čistota striebra elektród s certifikátom" },
+  { value: "1–100 nm", label: "veľkosť nanočastíc — voľným okom neviditeľné" },
+  { value: "tma a sklo", label: "skladuje sa v tmavej sklenenej fľaši" },
+];
