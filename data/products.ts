@@ -40,6 +40,7 @@ export const products: Product[] = [
     price: 999,
     available: true,
     illustration: "gks904",
+    image: "/images/products/gks-904.jpg",
   },
   {
     id: "gks-906",
@@ -79,6 +80,7 @@ export const products: Product[] = [
     price: 999,
     available: true,
     illustration: "gks906",
+    image: "/images/products/gks-906.jpg",
   },
   {
     id: "mgm-101",

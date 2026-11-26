@@ -55,7 +55,7 @@ export function NatureSection() {
                     <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(3,22,28,0.35)_0%,rgba(3,22,28,0.85)_100%)]" />
                   </>
                 )}
-                <span className="text-5xl font-extrabold leading-none tracking-[-0.04em] opacity-90">
+                <span className="text-5xl font-extrabold leading-none tracking-[-0.04em]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div>

@@ -25,11 +25,12 @@ import {
 
 // next/font vyžaduje doslovné hodnoty v nastaveniach — preto bez spread/premenných.
 
-// Hlavný font webu — prednačítaný.
+// Pôvodný font — už len ako voľba vo FontPickeri.
 const archivo = Archivo({
   variable: "--font-archivo",
   subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600", "700", "800"],
+  preload: false,
 });
 
 // Alternatívy pre výber písma (FontPicker). preload: false → súbor sa
@@ -64,7 +65,8 @@ const chivo = Chivo({
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin", "latin-ext"],
-  preload: false,
+  // hlavné písmo webu — prednačítané
+  preload: true,
 });
 const figtree = Figtree({
   variable: "--font-figtree",
@@ -99,7 +101,8 @@ const instrument = Instrument_Sans({
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin", "latin-ext"],
-  preload: false,
+  // hlavné písmo webu — prednačítané
+  preload: true,
 });
 const onest = Onest({
   variable: "--font-onest",

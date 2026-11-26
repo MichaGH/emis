@@ -11,9 +11,12 @@ export function ProductCard({ product }: { product: Product }) {
     <article className="card group flex flex-col overflow-hidden rounded-xl transition-colors hover:border-primary">
       <Link href={href} className="relative block">
         <ProductMedia product={product} className="aspect-[5/4]" />
-        <span className="absolute left-5 top-5 text-sm font-semibold text-muted">
-          {product.category}
-        </span>
+        {/* na fotke bez nápisu — kategória je len pri výkrese */}
+        {!product.image && (
+          <span className="absolute left-5 top-5 text-sm font-semibold">
+            {product.category}
+          </span>
+        )}
       </Link>
 
       <div className="flex flex-1 flex-col px-7 pb-7 pt-6">

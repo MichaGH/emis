@@ -7,7 +7,7 @@ import { ClientLogoList } from "@/components/homepage/ClientsSection";
 // spolu s logami firiem, pre ktoré sme zariadenia vyvíjali.
 export function ElectronicsSection() {
   return (
-    <section className="bg-white py-16 lg:py-20">
+    <section className="bg-surface py-16 lg:py-20">
       <div className={CONTAINER}>
         <div className="relative isolate overflow-hidden rounded-xl text-white">
           <Image

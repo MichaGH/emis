@@ -20,3 +20,4 @@ Produktové fotografie generátorov dodá klient do `products/`.
 | family-meadow.jpg | https://unsplash.com/photos/woman-holding-man-and-toddler-hands-during-daytime-5NLCaz2wJXE |
 
 Fotky realizácií v `realizacie/` pochádzajú z pôvodného webu klienta emis.sk.
+Fotky produktov `products/gks-904.jpg` a `products/gks-906.jpg` sú orezané fotky z pôvodného webu emis.sk.

@@ -56,6 +56,7 @@ export function HeroSection({
   overlay?: number;
 } = {}) {
   return (
+    <>
     <section className="relative isolate overflow-hidden bg-darker text-white">
       {background ??
         (image ? (
@@ -86,41 +87,42 @@ export function HeroSection({
       <BottleOutline className="pointer-events-none absolute -left-16 top-20 -z-10 hidden h-[90%] text-white/[0.1] lg:block" />
       <ProcessOutline className="pointer-events-none absolute -right-24 top-10 -z-10 hidden h-[115%] text-white/[0.1] lg:block" />
 
-      <div className={`${CONTAINER} flex flex-col items-center pb-12 pt-[calc(var(--nav-h)+5.5rem)] text-center sm:pt-[calc(var(--nav-h)+7rem)] lg:min-h-svh lg:pb-14 lg:pt-[calc(var(--nav-h)+3rem)]`}>
-        {/* Na desktope je hero na celú výšku okna, text je v strede, štatistiky dole */}
-        <div className="flex flex-1 flex-col items-center justify-center">
-          <h1 className="max-w-4xl text-[3rem] font-extrabold leading-[1.02] tracking-[-0.035em] [text-shadow:0_1px_2px_rgba(3,22,28,0.6)] sm:text-7xl lg:text-[5.75rem]">
-            {heroContent.title}
-          </h1>
-          <p className="mt-7 max-w-2xl text-lg font-medium leading-relaxed text-white [text-shadow:0_1px_2px_rgba(3,22,28,0.7)] sm:text-xl">
-            {heroContent.lead}
-          </p>
+      {/* Nižšia úvodná sekcia (cca pol obrazovky) — nadpis, veta, tlačidlá */}
+      <div className={`${CONTAINER} flex flex-col items-center pb-24 pt-[calc(var(--nav-h)+3.5rem)] text-center sm:pb-28 lg:pb-28 lg:pt-[calc(var(--nav-h)+3rem)]`}>
+        <h1 className="max-w-5xl text-[3rem] font-extrabold leading-[1.02] tracking-[-0.04em] [text-shadow:0_1px_2px_rgba(3,22,28,0.6)] sm:text-7xl lg:text-[5rem]">
+          {heroContent.title}
+        </h1>
+        <p className="mt-6 max-w-2xl text-xl font-medium leading-relaxed text-white [text-shadow:0_1px_2px_rgba(3,22,28,0.7)] sm:text-2xl">
+          {heroContent.lead}
+        </p>
 
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
-            <ButtonLink href={heroContent.primary.href}>{heroContent.primary.label}</ButtonLink>
-            <ButtonLink href={heroContent.secondary.href} variant="glass">
-              {heroContent.secondary.label}
-            </ButtonLink>
-          </div>
+        <div className="mt-9 flex flex-wrap justify-center gap-3">
+          <ButtonLink href={heroContent.primary.href}>{heroContent.primary.label}</ButtonLink>
+          <ButtonLink href={heroContent.secondary.href} variant="glass">
+            {heroContent.secondary.label}
+          </ButtonLink>
         </div>
+      </div>
+    </section>
 
-        {/* Štatistiky — obyčajný text nad tenkou čiarou, bez panelu */}
-        <dl className="mt-16 grid w-full max-w-4xl grid-cols-1 gap-8 border-t border-white/30 pt-8 sm:grid-cols-3 lg:mt-12">
+    {/* Karta so štatistikami — prekrýva spodný okraj úvodnej sekcie */}
+    <div className="relative z-10 bg-white">
+      <div className={CONTAINER}>
+        <dl className="-mt-16 grid divide-y divide-border rounded-xl bg-white shadow-[0_18px_40px_-24px_rgba(3,22,28,0.45)] ring-1 ring-black/[0.06] sm:-mt-20 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
           {heroContent.facts.map((fact) => (
-            <div key={fact.label}>
+            <div key={fact.label} className="px-6 py-6 text-center sm:px-8 sm:py-8">
               <dt className="sr-only">{fact.label}</dt>
               <dd>
-                <span className="block text-3xl font-extrabold tracking-tight sm:text-4xl">
+                <span className="block font-display text-2xl font-extrabold tracking-tight sm:text-3xl">
                   {fact.value}
                 </span>
-                <span className="mt-1.5 block text-[15px] font-medium text-white">
-                  {fact.label}
-                </span>
+                <span className="mt-1.5 block text-[15px] font-medium">{fact.label}</span>
               </dd>
             </div>
           ))}
         </dl>
       </div>
-    </section>
+    </div>
+    </>
   );
 }

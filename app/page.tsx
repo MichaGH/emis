@@ -4,7 +4,7 @@ import { SilverSection } from "@/components/homepage/SilverSection";
 import { NatureSection } from "@/components/homepage/NatureSection";
 import { HealthSection } from "@/components/homepage/HealthSection";
 import { ElectronicsSection } from "@/components/homepage/ElectronicsSection";
-import { ContactSection } from "@/components/homepage/ContactSection";
+import { AdviceSection } from "@/components/homepage/AdviceSection";
 
 export default function Home() {
   return (
@@ -14,8 +14,8 @@ export default function Home() {
       <HealthSection />
       <NatureSection />
       <SilverSection />
+      <AdviceSection />
       <ElectronicsSection />
-      <ContactSection />
     </>
   );
 }
