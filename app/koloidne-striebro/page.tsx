@@ -6,7 +6,6 @@ import { FactsBand } from "@/components/silver/FactsBand";
 import { NatureBand } from "@/components/silver/NatureBand";
 import { ArticlesSection } from "@/components/silver/ArticlesSection";
 import { PageHeader } from "@/components/layout/PageHeader";
-import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import {
   PlusIcon,
@@ -34,7 +33,6 @@ export default function SilverPage() {
 
       <section className={`${CONTAINER} grid gap-10 py-16 lg:grid-cols-12 lg:py-24`}>
         <article className="space-y-5 text-lg leading-relaxed text-foreground lg:col-span-6">
-          <SectionLabel label="Čo to je" />
           <p className="text-2xl font-bold leading-snug text-foreground">
             Koloidné striebro je destilovaná voda, v ktorej sú rozptýlené
             veľmi malé častice a ióny striebra.
@@ -83,8 +81,7 @@ export default function SilverPage() {
 
       <section className="bg-surface">
         <div className={`${CONTAINER} py-16 lg:py-24`}>
-          <SectionLabel label="Postup výroby" />
-          <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">
+          <h2 className="text-3xl font-extrabold sm:text-4xl">
             Štyri kroky k hotovému roztoku
           </h2>
           <ol className="mt-10 grid gap-4 sm:grid-cols-2">
@@ -112,8 +109,7 @@ export default function SilverPage() {
 
       <section className={`${CONTAINER} grid gap-10 py-16 lg:grid-cols-12 lg:py-24`}>
         <div className="lg:col-span-4">
-          <SectionLabel label="Časté otázky" />
-          <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">
+          <h2 className="text-3xl font-extrabold sm:text-4xl">
             Na čo sa zákazníci pýtajú
           </h2>
           <div className="relative mt-8 aspect-square w-full max-w-sm overflow-hidden rounded-xl">

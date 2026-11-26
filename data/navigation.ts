@@ -4,7 +4,6 @@ export const mainNav: NavItem[] = [
   { label: "Koloidné striebro", href: "/koloidne-striebro" },
   { label: "Produkty", href: "/produkty" },
   { label: "Zákazková elektronika", href: "/elektronika" },
-  { label: "O nás", href: "/o-nas" },
   { label: "Kontakt", href: "/kontakt" },
 ];
 
@@ -23,7 +22,6 @@ export const footerNav: { title: string; items: NavItem[] }[] = [
     items: [
       { label: "Ako vzniká koloidné striebro", href: "/koloidne-striebro" },
       { label: "Zákazková elektronika", href: "/elektronika" },
-      { label: "O nás", href: "/o-nas" },
       { label: "Kontakt", href: "/kontakt" },
     ],
   },

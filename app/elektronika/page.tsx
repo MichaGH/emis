@@ -46,7 +46,7 @@ export default function ElectronicsPage() {
 
       <section className="bg-white">
         <div className={`${CONTAINER} grid items-center gap-14 py-20 lg:grid-cols-2 lg:py-28`}>
-          <div className="relative aspect-[5/4] overflow-hidden rounded-xl shadow-[0_40px_80px_-40px_rgba(6,15,38,0.55)]">
+          <div className="relative aspect-[5/4] overflow-hidden rounded-xl">
             <Image
               src="/images/workshop-soldering.jpg"
               alt="Spájkovanie elektroniky v dielni"
@@ -56,24 +56,17 @@ export default function ElectronicsPage() {
             />
           </div>
           <div>
-            <h2 className="mt-3 text-4xl font-extrabold tracking-[-0.03em] sm:text-5xl">
+            <h2 className="text-4xl font-extrabold tracking-[-0.03em] sm:text-5xl">
               Od schémy po hotový prístroj
             </h2>
-            <ol className="mt-10 space-y-7">
-              {workPrinciples.map((p, i) => (
-                <li key={p.title} className="grid grid-cols-[4.25rem_1fr]">
-                  <span className="text-primary text-[2.6rem] font-extrabold leading-none tracking-[-0.04em]">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <h3 className="text-xl font-bold">{p.title}</h3>
-                    <p className="mt-1.5 text-lg leading-relaxed text-foreground">
-                      {p.text}
-                    </p>
-                  </div>
+            <ul className="mt-10 space-y-7">
+              {workPrinciples.map((p) => (
+                <li key={p.title} className="border-l-2 border-primary pl-5">
+                  <h3 className="text-xl font-bold">{p.title}</h3>
+                  <p className="mt-1.5 text-lg leading-relaxed">{p.text}</p>
                 </li>
               ))}
-            </ol>
+            </ul>
           </div>
         </div>
       </section>

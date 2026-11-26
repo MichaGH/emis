@@ -32,47 +32,54 @@ export function ProjectGallery({ projects }: { projects: ElectronicsProject[] })
 
   return (
     <>
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {projects.map((p, i) => (
-          <article
-            key={p.code}
-            className="group flex flex-col overflow-hidden rounded-xl bg-white ring-1 ring-black/[0.07]"
-          >
-            <button
-              type="button"
-              onClick={() => setOpen({ project: i, photo: 0 })}
-              className="relative block aspect-[4/3] overflow-hidden bg-surface text-left"
-              aria-label={`Fotky: ${p.title}`}
+      {/* Karty: fotka vľavo, text vpravo (na mobile pod sebou), bez štítkov na fotke */}
+      <div className="grid gap-5 lg:grid-cols-2">
+        {projects.map((p, i) => {
+          const photos = p.photos.length;
+          const label = photos === 1 ? "Zobraziť fotku" : `Zobraziť ${photos} ${photos <= 4 ? "fotky" : "fotiek"}`;
+          return (
+            <article
+              key={p.code}
+              className="group grid overflow-hidden rounded-xl bg-white sm:grid-cols-[minmax(0,5fr)_minmax(0,6fr)]"
             >
-              <Image
-                src={p.photos[0]}
-                alt={p.title}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-              />
-              <span className="absolute left-3 top-3 rounded-md bg-dark px-2.5 py-1 text-sm font-extrabold tracking-[0.02em] text-white">
-                {p.code}
-              </span>
-              {p.photos.length > 1 && (
-                <span className="absolute bottom-3 right-3 rounded-md bg-white px-2 py-0.5 text-xs font-bold text-foreground">
-                  {p.photos.length} {p.photos.length <= 4 ? "fotky" : "fotiek"}
-                </span>
-              )}
-            </button>
+              <button
+                type="button"
+                onClick={() => setOpen({ project: i, photo: 0 })}
+                className="relative block aspect-[4/3] overflow-hidden bg-surface sm:aspect-auto sm:min-h-[260px]"
+                aria-label={`${label}: ${p.title}`}
+              >
+                <Image
+                  src={p.photos[0]}
+                  alt={p.title}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 45vw, 22vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+              </button>
 
-            <div className="flex flex-1 flex-col p-5">
-              <p className="text-[13px] font-semibold text-primary">{p.category}</p>
-              <h3 className="mt-1 text-lg font-bold leading-snug">{p.title}</h3>
-              <p className="mt-2 flex-1 text-[15px] leading-relaxed">{p.description}</p>
-              {p.client && (
-                <p className="mt-4 border-t border-border pt-3 text-sm font-semibold">
-                  Pre {p.client}
+              <div className="flex flex-col p-6">
+                <p className="text-[13px] font-semibold">
+                  <span className="text-primary">{p.category}</span>
+                  <span className="mx-2 opacity-40">/</span>
+                  {p.code}
                 </p>
-              )}
-            </div>
-          </article>
-        ))}
+                <h3 className="mt-2 text-xl font-bold leading-snug">{p.title}</h3>
+                <p className="mt-2 flex-1 text-[15px] leading-relaxed">{p.description}</p>
+                <div className="mt-5 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-border pt-4 text-sm">
+                  <span className="font-semibold">{p.client ? `Pre ${p.client}` : "Na zákazku"}</span>
+                  <button
+                    type="button"
+                    onClick={() => setOpen({ project: i, photo: 0 })}
+                    className="inline-flex items-center gap-1.5 font-bold text-primary hover:underline"
+                  >
+                    {label}
+                    <ArrowRightIcon className="h-4 w-4" />
+                  </button>
+                </div>
+              </div>
+            </article>
+          );
+        })}
       </div>
 
       {current && open && (

@@ -73,7 +73,6 @@ export const clients = [
   "LG.Philips Displays",
   "Samsung",
   "Panasonic",
-  "XPS b.v.",
   "OVP Orava",
 ];
 
