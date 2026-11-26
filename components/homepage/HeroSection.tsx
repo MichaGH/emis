@@ -42,7 +42,7 @@ export function HeroSection({
   imagePosition = "center",
   imageClassName = DEFAULT_IMAGE_CLASS,
   background,
-  dim = 0,
+  overlay = 1,
 }: {
   /** fotka v pozadí (lokálna cesta alebo URL) — bez nej beží video */
   image?: string;
@@ -52,8 +52,8 @@ export function HeroSection({
   imageClassName?: string;
   /** vlastné pozadie namiesto fotky (napr. video) — musí mať -z-20 */
   background?: React.ReactNode;
-  /** extra rovnomerné stmavenie 0–1 (testovanie) */
-  dim?: number;
+  /** sila stmavenia: 0 = čisté pozadie, 1 = predvolené, do 1,5 = tmavšie (testovanie) */
+  overlay?: number;
 } = {}) {
   return (
     <section className="relative isolate overflow-hidden bg-darker text-white">
@@ -74,9 +74,12 @@ export function HeroSection({
       {/* Rovnomerné tmavé petrolejové prekrytie (ladí s vodou na videu),
           tmavšie hore pod navigáciou a dole pod štatistikami. Žiadna škvrna
           okolo textu. */}
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(3,22,28,0.72)_0%,rgba(3,22,28,0.5)_22%,rgba(3,22,28,0.5)_70%,rgba(3,22,28,0.78)_100%)]" />
-      {dim > 0 && (
-        <div className="absolute inset-0 -z-10 bg-[#03161c]" style={{ opacity: dim }} />
+      <div
+        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(3,22,28,0.72)_0%,rgba(3,22,28,0.5)_22%,rgba(3,22,28,0.5)_70%,rgba(3,22,28,0.78)_100%)]"
+        style={overlay === 1 ? undefined : { opacity: Math.min(overlay, 1) }}
+      />
+      {overlay > 1 && (
+        <div className="absolute inset-0 -z-10 bg-[#03161c]" style={{ opacity: (overlay - 1) * 0.8 }} />
       )}
 
       {/* Nenápadné obrysy v pozadí — vľavo fľaštička, vpravo generátor */}

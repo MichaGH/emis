@@ -11,7 +11,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from "@/components/ui/Icons";
 
 export function HeroVideoTester() {
   const [index, setIndex] = useState(0);
-  const [dim, setDim] = useState(0.1);
+  const [overlay, setOverlay] = useState(1);
   const [mono, setMono] = useState(false);
   const [open, setOpen] = useState(true);
 
@@ -51,7 +51,7 @@ export function HeroVideoTester() {
 
   return (
     <>
-      <HeroSection background={video} dim={dim} />
+      <HeroSection background={video} overlay={overlay} />
       <ProductsSection />
 
       <div
@@ -120,13 +120,13 @@ export function HeroVideoTester() {
                 <input
                   type="range"
                   min={0}
-                  max={0.7}
+                  max={1.5}
                   step={0.05}
-                  value={dim}
-                  onChange={(e) => setDim(Number(e.target.value))}
+                  value={overlay}
+                  onChange={(e) => setOverlay(Number(e.target.value))}
                   className="w-32 accent-[var(--primary)]"
                 />
-                <span className="w-8 tabular-nums">{Math.round(dim * 100)}%</span>
+                <span className="w-10 tabular-nums">{Math.round(overlay * 100)}%</span>
               </label>
               <label className="flex items-center gap-2 font-semibold">
                 <input
